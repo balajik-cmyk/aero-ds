@@ -50,7 +50,7 @@ function FilterRow({
           </button>
 
           {open && filter.options && (
-            <div className="mt-1 bg-white dark:bg-[#262b35] border border-[#e5e9f0] dark:border-[#333a47] rounded-lg shadow-sm overflow-hidden z-10 relative">
+            <div className="absolute top-full right-0 mt-1 min-w-full bg-white dark:bg-[#262b35] border border-[#e5e9f0] dark:border-[#333a47] rounded-lg shadow-sm overflow-hidden z-20 origin-top-right">
               {filter.options.map((option) => (
                 <button
                   key={option}

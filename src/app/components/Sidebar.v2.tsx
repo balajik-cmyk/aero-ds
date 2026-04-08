@@ -3,7 +3,7 @@ import {
   ChevronDown, ChevronUp, Settings, User, LogOut, Camera, Moon, Sun, Monitor, ChevronLeft, Share2, Clock, ExternalLink, Keyboard, Sparkles,
 } from "lucide-react";
 import {
-  House, ChatDots, MapPin, Star, Gift, CurrencyDollar,
+  ChatDots, MapPin, Star, Gift, CurrencyDollar,
   CalendarDots, Graph, ClipboardText, Ticket, Users,
   MegaphoneSimple, Globe, Lightbulb, ChartBar, Sparkle,
 } from "@phosphor-icons/react";
@@ -31,7 +31,6 @@ const DEFAULT_AVATAR = "https://images.unsplash.com/photo-1617853701628-bfcf8b81
 /* ─── Icon-strip items — Phosphor Icons ─── */
 const iconStripItems: { label: string; Icon: React.ElementType }[] = [
   { label: "Agents",       Icon: Sparkle        },
-  { label: "Home",         Icon: House          },
   { label: "Inbox",        Icon: ChatDots       },
   { label: "Listings",     Icon: MapPin         },
   { label: "Reviews",      Icon: Star           },
@@ -62,7 +61,7 @@ interface IconStripProps {
 }
 
 export function IconStrip({ currentView, onViewChange, iconSize = L1_STRIP_ICON_SIZE, onOpenKeyboardShortcuts }: IconStripProps) {
-  const [activeIcon, setActiveIcon] = useState("Home");
+  const [activeIcon, setActiveIcon] = useState("Agents");
   const [profileOpen, setProfileOpen] = useState(false);
   // Portal tooltip — fixed position so it escapes overflow-y: auto clipping
   const [tooltip, setTooltip] = useState<{ label: string; top: number } | null>(null);
@@ -85,7 +84,7 @@ export function IconStrip({ currentView, onViewChange, iconSize = L1_STRIP_ICON_
 
   // Sync activeIcon with currentView (layout effect avoids wrong rail highlight on first paint)
   useLayoutEffect(() => {
-    if (currentView === "business-overview") setActiveIcon("Home");
+    if (currentView === "business-overview") setActiveIcon("Agents");
     else if (currentView === "inbox") setActiveIcon("Inbox");
     else if (currentView === "reviews") setActiveIcon("Reviews");
     else if (currentView === "social") setActiveIcon("Social");
@@ -136,7 +135,7 @@ export function IconStrip({ currentView, onViewChange, iconSize = L1_STRIP_ICON_
       </div>
 
       {/* Icon buttons */}
-      <div className="flex flex-col items-center px-[12px] py-[8px] gap-[2px] flex-1 overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div className="flex flex-col items-center px-[12px] pb-[8px] pt-0 gap-[2px] flex-1 overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {iconStripItems.map(({ label, Icon }) => {
           const isActive = label === activeIcon;
           return (
@@ -144,8 +143,7 @@ export function IconStrip({ currentView, onViewChange, iconSize = L1_STRIP_ICON_
               key={label}
               onClick={() => {
                 setActiveIcon(label);
-                if (label === "Home") onViewChange("business-overview");
-                else if (label === "Inbox") onViewChange("inbox");
+                if (label === "Inbox") onViewChange("inbox");
                 else if (label === "Reports") onViewChange("dashboard");
                 else if (label === "Reviews") onViewChange("reviews");
                 else if (label === "Social") onViewChange("social");
