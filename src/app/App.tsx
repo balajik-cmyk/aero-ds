@@ -1,6 +1,6 @@
 import {
   IconStrip, L2NavPanel, ReviewsL2NavPanel, SocialL2NavPanel, SearchAIL2NavPanel,
-  ContactsL2NavPanel, AgentsL2NavPanel, ListingsL2NavPanel, TicketingL2NavPanel,
+  ContactsL2NavPanel, PaymentsL2NavPanel, AgentsL2NavPanel, ListingsL2NavPanel, TicketingL2NavPanel,
   CampaignsL2NavPanel, SurveysL2NavPanel, InsightsL2NavPanel, CompetitorsL2NavPanel,
   InboxL2NavPanel, MynaConversationsL2NavPanel,
 } from "./components/Sidebar";
@@ -16,6 +16,7 @@ import { ReviewsView } from "./components/ReviewsView";
 import { SocialView } from "./components/SocialView";
 import { SearchAIView } from "./components/SearchAIView";
 import { ContactsView } from "./components/ContactsView";
+import { PaymentsView } from "./components/PaymentsView";
 import { ScheduledDeliveriesView } from "./components/ScheduledDeliveriesView";
 import { AgentsMonitorView } from "./components/AgentsMonitorView";
 import { AnalyzePerformanceView } from "./components/AnalyzePerformanceView";
@@ -45,6 +46,7 @@ export type AppView =
   | "social"
   | "searchai"
   | "contacts"
+  | "payments"
   | "scheduled-deliveries"
   | "agents-monitor"
   | "agents-analyze-performance"
@@ -182,6 +184,7 @@ export default function App() {
     v === "social" ||
     v === "searchai" ||
     v === "contacts" ||
+    v === "payments" ||
     v === "scheduled-deliveries" ||
     v === "agents-monitor" ||
     v === "agents-analyze-performance" ||
@@ -262,6 +265,10 @@ export default function App() {
           {!aiPanelOpen && !mynaWorkspaceExpanded && currentView === "contacts" && (
             <ContactsL2NavPanel />
           )}
+          {/* Payments L2 nav panel */}
+          {!aiPanelOpen && !mynaWorkspaceExpanded && currentView === "payments" && (
+            <PaymentsL2NavPanel />
+          )}
           {/* Listings L2 nav panel */}
           {!aiPanelOpen && !mynaWorkspaceExpanded && currentView === "listings" && (
             <ListingsL2NavPanel />
@@ -320,6 +327,8 @@ export default function App() {
               <SearchAIView />
             ) : currentView === "contacts" ? (
               <ContactsView />
+            ) : currentView === "payments" ? (
+              <PaymentsView />
             ) : currentView === "scheduled-deliveries" ? (
               <ScheduledDeliveriesView onCreateSchedule={() => handleViewChange("schedule-builder")} />
             ) : currentView === "agents-monitor" ? (

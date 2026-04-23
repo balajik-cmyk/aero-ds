@@ -20,10 +20,7 @@ import {
   HOVER,
   CHILD_ACTIVE,
   CHILD_INACTIVE,
-  FOOTER_ROW_CLS,
   SECTION_HEADER,
-  L2_HEADER_PLUS_WRAPPER_BLUE,
-  L2_HEADER_PLUS_GLYPH_BLUE,
 } from "./L2NavLayout";
 
 /** How long to show the Reports-row shimmer before opening the tab (~sub-second “micro” handoff). */
@@ -101,6 +98,7 @@ export function IconStrip({ currentView, onViewChange, iconSize = L1_STRIP_ICON_
     else if (currentView === "social") setActiveIcon("Social");
     else if (currentView === "searchai") setActiveIcon("Insights");
     else if (currentView === "contacts") setActiveIcon("Contacts");
+    else if (currentView === "payments") setActiveIcon("Payments");
     else if (currentView === "listings") setActiveIcon("Listings");
     else if (currentView === "surveys") setActiveIcon("Surveys");
     else if (currentView === "ticketing") setActiveIcon("Ticketing");
@@ -160,6 +158,7 @@ export function IconStrip({ currentView, onViewChange, iconSize = L1_STRIP_ICON_
                 else if (label === "Social") onViewChange("social");
                 else if (label === "Insights") onViewChange("searchai");
                 else if (label === "Contacts") onViewChange("contacts");
+                else if (label === "Payments") onViewChange("payments");
                 else if (label === "Agents") onViewChange("agents-monitor");
                 else if (label === "Listings") onViewChange("listings");
                 else if (label === "Surveys") onViewChange("surveys");
@@ -570,34 +569,8 @@ export function L2NavPanel({ currentView: _currentView, onViewChange }: L2NavPan
           Reports
         </p>
 
-        {/* Create dashboard button */}
-        <button
-          type="button"
-          className={`${FOOTER_ROW_CLS} mb-2`}
-          style={{ fontSize: 14 }}
-          onClick={() => onViewChange("dashboard")}
-        >
-          <span className="text-[14px]">Create dashboard</span>
-          <div className={L2_HEADER_PLUS_WRAPPER_BLUE}>
-            <span className={L2_HEADER_PLUS_GLYPH_BLUE}>+</span>
-          </div>
-        </button>
-
         {/* Dashboard sections */}
         {dashboardSections.map(renderDashboardSection)}
-
-        {/* Create report button */}
-        <button
-          type="button"
-          className={`${FOOTER_ROW_CLS} mt-2 mb-2`}
-          style={{ fontSize: 14 }}
-          onClick={() => onViewChange("dashboard")}
-        >
-          <span className="text-[14px]">Create report</span>
-          <div className={L2_HEADER_PLUS_WRAPPER_BLUE}>
-            <span className={L2_HEADER_PLUS_GLYPH_BLUE}>+</span>
-          </div>
-        </button>
 
         {/* Product report catalogs (Listings, Social, …) — no Agent Reports parent */}
         <div className="mt-2 flex flex-col gap-1">
@@ -614,7 +587,6 @@ export function L2NavPanel({ currentView: _currentView, onViewChange }: L2NavPan
    ═══════════════════════════════════════════ */
 
 const reviewsConfig = {
-  headerAction: { label: "Send a review request" },
   defaultExpandedSections: ["Actions"],
   sections: [
     {
@@ -677,7 +649,6 @@ export function ReviewsL2NavPanel() {
    Social L2 Nav Panel – uses L2NavLayout
    ═══════════════════════════════════════════ */
 const socialConfig = {
-  headerAction: { label: "Create post" },
   sections: [
     { label: "Actions", children: ["Reply manually", "Monitor agent replies"] },
     { label: "Publish", children: ["View calendar", "View drafts", "Approve posts", "Fix failed posts", "Fix rejected posts"] },
@@ -713,7 +684,6 @@ export function SearchAIL2NavPanel() {
    Contacts L2 Nav Panel – uses L2NavLayout
    ═══════════════════════════════════════════ */
 const contactsConfig = {
-  headerAction: { label: "Add a contact" },
   standaloneItems: ["All contacts", "Lists & segments"],
   sections: [
     { label: "Settings", children: ["Custom fields", "Tags"] },
@@ -722,6 +692,18 @@ const contactsConfig = {
 
 export function ContactsL2NavPanel() {
   return <L2NavLayout {...contactsConfig} data-no-print />;
+}
+
+const paymentsConfig = {
+  standaloneItems: ["Overview", "Transactions", "Payouts", "Invoices"],
+  sections: [
+    { label: "Analytics", children: ["Revenue collected", "Outstanding requests", "Refunds"] },
+    { label: "Settings", children: ["Payment methods", "Invoices", "Tax settings"] },
+  ],
+};
+
+export function PaymentsL2NavPanel() {
+  return <L2NavLayout {...paymentsConfig} data-no-print />;
 }
 
 /* ═══════════════════════════════════════════
@@ -747,7 +729,6 @@ export function ListingsL2NavPanel() {
    Ticketing L2 Nav Panel – new export
    ═══════════════════════════════════════════ */
 const ticketingConfig = {
-  headerAction: { label: "Create ticket" },
   sections: [
     { label: "Actions", children: ["My tickets", "View all tickets"] },
     { label: "Reports", children: ["Resolution time", "Volume"] },
@@ -779,7 +760,6 @@ export function CampaignsL2NavPanel() {
    Surveys L2 Nav Panel – new export
    ═══════════════════════════════════════════ */
 const surveysConfig = {
-  headerAction: { label: "Create survey" },
   sections: [
     { label: "Actions", children: ["Respond to surveys"] },
     { label: "Surveys", children: ["All surveys", "Standard surveys", "Pulse surveys"] },
@@ -920,14 +900,6 @@ export function InboxL2NavPanel() {
     <div className={PANEL} data-no-print>
       <div className="flex-1 overflow-y-auto px-[8px] pt-3 pb-4">
 
-        {/* Header: New message */}
-        <button className={`${FOOTER_ROW_CLS} mb-[6px]`} style={{ fontSize: 14 }}>
-          <span className="text-[14px]">New message</span>
-          <div className={L2_HEADER_PLUS_WRAPPER_BLUE}>
-            <span className={L2_HEADER_PLUS_GLYPH_BLUE}>+</span>
-          </div>
-        </button>
-
         {/* Flat item: All messages */}
         {(() => {
           const key = "standalone/All messages";
@@ -964,13 +936,9 @@ export function InboxL2NavPanel() {
         {/* Divider */}
         <div className="h-px bg-[#dfe1e6] dark:bg-[#2e3340] mx-1 my-3" />
 
-        {/* Internal team chat header */}
-        <button className={`${FOOTER_ROW_CLS} mb-[6px]`} style={{ fontSize: 14 }}>
-          <span className="text-[14px]">Internal team chat</span>
-          <div className={L2_HEADER_PLUS_WRAPPER_BLUE}>
-            <span className={L2_HEADER_PLUS_GLYPH_BLUE}>+</span>
-          </div>
-        </button>
+        <p className="px-2 pb-1 text-[11px] uppercase tracking-wide text-[#888] dark:text-[#6b7280]" style={{ fontWeight: 500 }}>
+          Internal team chat
+        </p>
 
         {/* Team sections */}
         {teamSections.map(section => (

@@ -1,6 +1,9 @@
 import { Sparkles } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
-import { VersionSwitcher } from "@/app/components/VersionSwitcher";
+import {
+  QuickCreateLauncher,
+  type QuickCreateAction,
+} from "@/app/components/QuickCreateLauncher";
 import type { AppView } from "../App";
 import { getAppViewTitle } from "../appViewTitle";
 import { MYNA_CHAT_HEADER_TITLE } from "../myna/mynaChatChrome";
@@ -12,7 +15,45 @@ interface TopBarProps {
   onToggleMynaChat?: () => void;
 }
 
-export function TopBar({ currentView, onToggleMynaChat }: TopBarProps) {
+export function TopBar({ currentView, onViewChange, onToggleMynaChat }: TopBarProps) {
+  function handleQuickCreate(action: QuickCreateAction) {
+    switch (action.id) {
+      case "review-request":
+        onViewChange("reviews");
+        return;
+      case "new-message":
+        onViewChange("inbox");
+        return;
+      case "create-post":
+        onViewChange("social");
+        return;
+      case "custom-agent":
+        onViewChange("agents-builder");
+        return;
+      case "add-contact":
+        onViewChange("contacts");
+        return;
+      case "create-survey":
+        onViewChange("surveys");
+        return;
+      case "create-ticket":
+        onViewChange("ticketing");
+        return;
+      case "create-workflow":
+        onViewChange("schedule-builder");
+        return;
+      case "create-report":
+      case "create-dashboard":
+        onViewChange("dashboard");
+        return;
+      case "request-payment":
+        onViewChange("payments");
+        return;
+      default:
+        return;
+    }
+  }
+
   return (
     <div className="h-[56px] bg-[#e0e5eb] dark:bg-[#181b22] flex items-center justify-between px-4 shrink-0 transition-colors duration-300 rounded-tr-lg" data-no-print>
       {/* Left: current area (aligned with L1 rail / route) */}
@@ -23,6 +64,7 @@ export function TopBar({ currentView, onToggleMynaChat }: TopBarProps) {
       {/* Right: design version (dev) + BirdAI */}
       <div className="flex items-center gap-2">
         {/* <VersionSwitcher /> */}
+        <QuickCreateLauncher onActionSelect={handleQuickCreate} />
         <Button
           type="button"
           variant="outline"

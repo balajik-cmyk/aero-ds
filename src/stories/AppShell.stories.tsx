@@ -7,6 +7,7 @@ import {
   SocialL2NavPanel,
   SearchAIL2NavPanel,
   ContactsL2NavPanel,
+  PaymentsL2NavPanel,
   AgentsL2NavPanel,
   ListingsL2NavPanel,
   TicketingL2NavPanel,
@@ -32,6 +33,7 @@ const VIEWS: { value: AppView; label: string; group: string }[] = [
   { value: "searchai",             label: "Search AI",               group: "Modules" },
   { value: "listings",             label: "Listings",                group: "Modules" },
   { value: "contacts",             label: "Contacts",                group: "Modules" },
+  { value: "payments",             label: "Payments",                group: "Modules" },
   { value: "inbox",                label: "Inbox",                   group: "Modules" },
   { value: "surveys",              label: "Surveys",                 group: "Modules" },
   { value: "ticketing",            label: "Ticketing",               group: "Modules" },
@@ -47,6 +49,7 @@ function L2Panel({ view, onViewChange }: { view: AppView; onViewChange: (v: AppV
   if (view === "social")      return <SocialL2NavPanel />;
   if (view === "searchai")    return <SearchAIL2NavPanel />;
   if (view === "contacts")    return <ContactsL2NavPanel />;
+  if (view === "payments")    return <PaymentsL2NavPanel />;
   if (view === "listings")    return <ListingsL2NavPanel />;
   if (view === "surveys")     return <SurveysL2NavPanel />;
   if (view === "ticketing")   return <TicketingL2NavPanel />;
