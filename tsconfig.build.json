@@ -12,5 +12,12 @@
     "skipLibCheck": true,
     "isolatedModules": true
   },
-  "include": ["src/index.ts", "src/components/utils.ts"]
+  "include": [
+    "src/index.ts",
+    "src/lib/utils.ts",
+    "src/config/designVersion.ts",
+    "src/app/components/layout/appShellClasses.ts",
+    "src/app/components/layout/slidePanelConstants.ts",
+    "src/app/components/ui/floatingPanelSurface.ts"
+  ]
 }
