@@ -108,9 +108,14 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    }
+    },
+    "./theme.css": "./src/tokens/theme.css",
+    "./tokens.css": "./src/tokens/index.css",
+    "./fonts.css": "./src/tokens/fonts.css",
+    "./tailwind.css": "./src/tokens/tailwind.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "src/tokens"
   ]
 }
