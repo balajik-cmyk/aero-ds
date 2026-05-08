@@ -18,6 +18,9 @@
     "src/config/designVersion.ts",
     "src/app/components/layout/appShellClasses.ts",
     "src/app/components/layout/slidePanelConstants.ts",
-    "src/app/components/ui/floatingPanelSurface.ts"
+    "src/app/components/layout/mainViewTitleClasses.ts",
+    "src/app/components/ui/floatingPanelSurface.ts",
+    "src/app/components/ui/modalOverlayClasses.ts",
+    "src/app/components/l1StripIconTokens.ts"
   ]
 }
