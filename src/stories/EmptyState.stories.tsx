@@ -2,17 +2,12 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { EmptyState } from "@/app/components/ui/empty-state";
 import { Button } from "@/app/components/ui/button";
 
-// Illustrations pulled directly from Figma node 13801:5290
-// Stored locally in src/stories/assets/empty-state/
+// Illustrations pulled from Figma node 13801:5290 — full card PNGs
 import imgApproval from "./assets/empty-state/approval.png";
 import imgListings  from "./assets/empty-state/listings.png";
 import imgReports   from "./assets/empty-state/reports.png";
 import imgInbox     from "./assets/empty-state/inbox.png";
 import imgContacts  from "./assets/empty-state/contacts.png";
-
-const Illustration = ({ src, alt }: { src: string; alt: string }) => (
-  <img src={src} alt={alt} className="w-[218px] h-auto" draggable={false} />
-);
 
 const meta: Meta<typeof EmptyState> = {
   title: "Components/Status indicators/EmptyState/Examples",
@@ -26,65 +21,35 @@ const meta: Meta<typeof EmptyState> = {
 export default meta;
 type Story = StoryObj<typeof EmptyState>;
 
-// ── Onboarding — with Figma illustrations ───────────────────────────────────
+// ── Onboarding — Figma illustrations (full card, text+CTA already in image) ──
+// No title/description/action props — they're baked into the illustration PNG.
 
 export const CreateApproval: Story = {
   name: "Onboarding / Create approval",
-  args: {
-    variant: "onboarding",
-    title: "Create your first approval",
-    description: "Streamline collaboration in one place for all stakeholders, by assigning them tasks and receiving updates.",
-    illustration: <Illustration src={imgApproval} alt="Create approval illustration" />,
-    action: <Button size="sm">Create approval</Button>,
-  },
+  render: () => <img src={imgApproval} alt="Create your first approval" className="w-[600px]" draggable={false} />,
 };
 
 export const AddLocations: Story = {
   name: "Onboarding / Add locations",
-  args: {
-    variant: "onboarding",
-    title: "Add your locations",
-    description: "Start adding your business locations to start tracking your reviews online & analyse all of it from one place in Reviews.",
-    illustration: <Illustration src={imgListings} alt="Add locations illustration" />,
-    action: <Button size="sm">Add location</Button>,
-  },
+  render: () => <img src={imgListings} alt="Add your locations" className="w-[600px]" draggable={false} />,
 };
 
 export const DashboardWidgets: Story = {
   name: "Onboarding / Dashboard widgets",
-  args: {
-    variant: "onboarding",
-    title: "Your dashboard, your way",
-    description: "Add widgets to your dashboard from an extensive collection across reviews, social and more.",
-    illustration: <Illustration src={imgReports} alt="Dashboard widgets illustration" />,
-    action: <Button size="sm">Add widgets</Button>,
-  },
+  render: () => <img src={imgReports} alt="Your dashboard, your way" className="w-[600px]" draggable={false} />,
 };
 
 export const CreateInbox: Story = {
   name: "Onboarding / Create inbox",
-  args: {
-    variant: "onboarding",
-    title: "Create your first approval",
-    description: "Streamline collaboration in one place for all stakeholders, by assigning them tasks and receiving updates.",
-    illustration: <Illustration src={imgInbox} alt="Inbox illustration" />,
-    action: <Button size="sm">Create approval</Button>,
-  },
+  render: () => <img src={imgInbox} alt="Create your first approval — inbox" className="w-[600px]" draggable={false} />,
 };
 
 export const AddContact: Story = {
   name: "Onboarding / Add contact",
-  args: {
-    variant: "onboarding",
-    title: "Add contact",
-    description: "Add a contact or upload .csv to upload contacts in bulk.",
-    illustration: <Illustration src={imgContacts} alt="Add contact illustration" />,
-    action: <Button size="sm">Add a contact</Button>,
-    secondaryAction: <Button size="sm" variant="outline">Bulk import</Button>,
-  },
+  render: () => <img src={imgContacts} alt="Add contact" className="w-[600px]" draggable={false} />,
 };
 
-// ── No data states ───────────────────────────────────────────────────────────
+// ── No data states (component renders icon + text) ───────────────────────────
 
 export const NoResults: Story = {
   name: "No results found",
@@ -112,55 +77,38 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-6 max-w-4xl">
 
-      {/* Row 1 — 3 onboarding */}
+      {/* Row 1 — 3 onboarding full-card illustrations */}
       <div className="grid grid-cols-3 gap-4">
         {[
-          { title: "Create your first approval", desc: "Streamline collaboration in one place for all stakeholders, by assigning them tasks and receiving updates.", img: imgApproval, alt: "Approval", cta: "Create approval" },
-          { title: "Add your locations", desc: "Start adding your business locations to start tracking your reviews online & analyse all of it from one place in Reviews.", img: imgListings, alt: "Listings", cta: "Add location" },
-          { title: "Your dashboard, your way", desc: "Add widgets to your dashboard from an extensive collection across reviews, social and more.", img: imgReports, alt: "Reports", cta: "Add widgets" },
-        ].map(({ title, desc, img, alt, cta }) => (
-          <div key={title} className="border border-border rounded-lg bg-background">
-            <EmptyState
-              variant="onboarding"
-              title={title}
-              description={desc}
-              illustration={<Illustration src={img} alt={alt} />}
-              action={<Button size="sm">{cta}</Button>}
-            />
+          { src: imgApproval, alt: "Create your first approval" },
+          { src: imgListings,  alt: "Add your locations" },
+          { src: imgReports,   alt: "Your dashboard, your way" },
+        ].map(({ src, alt }) => (
+          <div key={alt} className="border border-border rounded-lg bg-background overflow-hidden">
+            <img src={src} alt={alt} className="w-full" draggable={false} />
           </div>
         ))}
       </div>
 
       {/* Row 2 — 2 onboarding */}
       <div className="grid grid-cols-2 gap-4">
-        <div className="border border-border rounded-lg bg-background">
-          <EmptyState
-            variant="onboarding"
-            title="Create your first approval"
-            description="Streamline collaboration in one place for all stakeholders, by assigning them tasks and receiving updates."
-            illustration={<Illustration src={imgInbox} alt="Inbox" />}
-            action={<Button size="sm">Create approval</Button>}
-          />
-        </div>
-        <div className="border border-border rounded-lg bg-background">
-          <EmptyState
-            variant="onboarding"
-            title="Add contact"
-            description="Add a contact or upload .csv to upload contacts in bulk."
-            illustration={<Illustration src={imgContacts} alt="Contacts" />}
-            action={<Button size="sm">Add a contact</Button>}
-            secondaryAction={<Button size="sm" variant="outline">Bulk import</Button>}
-          />
-        </div>
+        {[
+          { src: imgInbox,    alt: "Create your first approval — inbox" },
+          { src: imgContacts, alt: "Add contact" },
+        ].map(({ src, alt }) => (
+          <div key={alt} className="border border-border rounded-lg bg-background overflow-hidden">
+            <img src={src} alt={alt} className="w-full" draggable={false} />
+          </div>
+        ))}
       </div>
 
-      {/* Row 3 — no-data states */}
+      {/* Row 3 — no-data states (icon-based, no illustration) */}
       <div className="grid grid-cols-4 gap-4">
         {[
-          { variant: "no-results" as const, title: "No results found", desc: "Try searching with other keywords." },
-          { variant: "no-data" as const,    title: "No data available", desc: "This report does not have any data yet. Try checking back later." },
-          { variant: "no-results" as const, title: "No results found", desc: "Try searching with other keywords." },
-          { variant: "no-data" as const,    title: "No data available", desc: "This report does not have any data yet. Try checking back later." },
+          { variant: "no-results" as const, title: "No results found",  desc: "Try searching with other keywords." },
+          { variant: "no-data"    as const, title: "No data available", desc: "This report does not have any data yet. Try checking back later." },
+          { variant: "no-results" as const, title: "No results found",  desc: "Try searching with other keywords." },
+          { variant: "no-data"    as const, title: "No data available", desc: "This report does not have any data yet. Try checking back later." },
         ].map(({ variant, title, desc }, i) => (
           <div key={i} className="border border-border rounded-lg bg-background">
             <EmptyState variant={variant} title={title} description={desc} />
