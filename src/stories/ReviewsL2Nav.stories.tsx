@@ -10,6 +10,7 @@
 
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
+import { ChevronUp, ChevronDown, ExternalLink } from "lucide-react";
 import { L2NavLayout, type L2NavLayoutProps } from "@/app/components/L2NavLayout";
 
 /* ── Reviews nav config (single source — mirrors Sidebar.tsx) ── */
@@ -220,7 +221,6 @@ export const AllExpanded: Story = {
 
 /* Helper: renders the Reviews panel with all sections forced open */
 function AllExpandedPanel({ active, onActive }: { active: string; onActive: (k: string) => void }) {
-  const { ChevronUp, ChevronDown, ExternalLink } = require("lucide-react");
 
   const PANEL =
     "w-[220px] bg-[#f0f1f5] dark:bg-[#1e2229] border-r border-[#e5e9f0] dark:border-[#2e3340] rounded-tl-lg flex flex-col h-full overflow-hidden shrink-0 transition-colors duration-300";
