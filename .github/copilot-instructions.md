@@ -55,10 +55,22 @@ STEP 10 Verify in Storybook
         → Check Accessibility panel — fix all red violations
         → Confirm all story variants render correctly
 
-STEP 11 Commit + push
-        → git add [specific files only]
-        → Commit message: feat(ui): add [Name] component
-        → git push origin main
+STEP 11 Branch + commit + PR  ⛔ NEVER push directly to main
+        → git checkout -b [type]/[name]  (see branch naming below)
+        → git add [specific files only — never git add -A blindly]
+        → git commit -m "[type]([scope]): [description]"
+        → git push -u origin [branch]
+        → gh pr create --title "..." --body "..."
+
+Branch naming convention:
+  feat/[component-name]        → new component  (e.g. feat/stepper)
+  fix/[component-name]         → bug fix         (e.g. fix/radio-border)
+  chore/[topic]                → config/rules    (e.g. chore/border-radius-tokens)
+  docs/[component-name]        → MDX docs only   (e.g. docs/button-usage)
+  refactor/[topic]             → cleanup         (e.g. refactor/remove-duplicates)
+
+⛔ NEVER: git push origin main (direct push is banned)
+⛔ NEVER: git add -A or git add . (stage only relevant files)
 ```
 
 **Category map for story titles:**
