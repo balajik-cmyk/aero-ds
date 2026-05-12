@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { LineChart, Line, ResponsiveContainer } from "recharts";
 import { ChartContainer, type ChartConfig } from "@/app/components/ui/chart";
-import { TrendingUp, TrendingDown } from "@phosphor-icons/react";
+import { ArrowUpRight, ArrowDownRight } from "@phosphor-icons/react";
 import { cn } from "@/app/components/ui/utils";
 
 const meta: Meta = {
@@ -35,7 +35,7 @@ function KPICard({ title, value, change, trend, sparkData, color }: {
       <p className="text-2xl font-medium text-foreground">{value}</p>
       <div className="flex items-center justify-between">
         <span className={cn("flex items-center gap-0.5 text-xs", isPositive ? "text-[color:var(--graph-green)]" : "text-destructive")}>
-          {isPositive ? <TrendingUp size={12} /> : <TrendingDown size={12} />}
+          {isPositive ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
           {change}
         </span>
         <Sparkline data={sparkData} color={color} positive={isPositive} />
