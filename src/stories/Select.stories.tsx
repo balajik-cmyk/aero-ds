@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import {
   Select,
   SelectTrigger,
@@ -92,7 +93,7 @@ export const Disabled: Story = {
 
 export const Async: Story = {
   render: () => {
-    const { useState, useEffect } = require("react");
+    
     const [options, setOptions] = useState<string[]>([]);
     const [loading, setLoading] = useState(false);
     const [open, setOpen] = useState(false);
@@ -128,7 +129,7 @@ export const Async: Story = {
 
 export const InfiniteScroll: Story = {
   render: () => {
-    const { useState, useRef, useCallback } = require("react");
+    
     const PAGE = 10;
     const all = Array.from({ length: 50 }, (_, i) => `Location ${i + 1}`);
     const [visible, setVisible] = useState(all.slice(0, PAGE));
