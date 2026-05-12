@@ -47,3 +47,9 @@ export { Chip, type ChipProps } from "./app/components/ui/chip";
 export { HyperlinkButton, type HyperlinkButtonProps } from "./app/components/ui/hyperlink-button";
 export * from "./app/components/ui/menu";
 export { SegmentGroup, SegmentGroupItem, type SegmentGroupProps, type SegmentGroupItemProps } from "./app/components/ui/segment-group";
+
+// ── TanStack Table (AppDataTable) ─────────────────────────────────────────────
+export { AppDataTable, type AppDataTableProps } from "./app/components/ui/AppDataTable";
+export { AppDataTableColumnSettingsTrigger } from "./app/components/ui/AppDataTableColumnSettingsTrigger";
+export { APP_DATA_TABLE_PRIMARY_ROW_LABEL_CLASS } from "./app/components/ui/appDataTableCellClasses";
+export type { AppDataTablePersistedSlice } from "./app/components/ui/appDataTableTypes";
