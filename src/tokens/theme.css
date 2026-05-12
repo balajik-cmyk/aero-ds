@@ -201,7 +201,8 @@
   --graph-social-x:               #252525;
   --graph-social-x-compare:       #a3a3a3;
   --graph-social-instagram-compare:#f1b4ef;
-  --radius: 0.625rem;
+  /* Border radius — fixed px values matching Figma + birdeyev2 token-radius-control/modal */
+  --radius: 8px;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: #1E44CC;
@@ -312,10 +313,11 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* Fixed px — matches Figma Corner Radius tokens and birdeyev2 --token-radius-control/modal */
+  --radius-sm: 4px;   /* Figma: Corner Radius/sm (Default-Web) = 4px */
+  --radius-md: 8px;   /* Figma: Corner Radius/md = 8px = birdeyev2 token-radius-control */
+  --radius-lg: 8px;   /* = --radius (controls default) */
+  --radius-xl: 12px;  /* Figma: Corner Radius/lg = 12px = birdeyev2 token-radius-modal */
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
