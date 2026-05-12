@@ -108,7 +108,53 @@ React · Vite · Tailwind v4 · shadcn-style primitives · Radix UI · Recharts 
 - Base font size: `13px` (`--font-size`). All rem values scale from this.
 - Figma shows Roboto at 12/14/16/18px — translate to aero-ds scale: xs/sm/base/lg/xl
 
-## § 2 — Token policy (no raw hex)
+## § 1b — Sentence case everywhere ⛔ NO title case
+
+⛔ All UI text must be sentence case. Title case is banned.
+
+```tsx
+// ✅ Correct
+<Badge>Active agent</Badge>  <Button>Send response</Button>
+<Label>Email address</Label> <SelectItem>Last 30 days</SelectItem>
+
+// ⛔ Wrong
+<Badge>Active Agent</Badge>  <Button>Send Response</Button>
+```
+
+Applies to: badges, chips, tags, buttons, labels, menu items, select options,
+tab labels, toasts, empty state titles, table headers, tooltips, placeholders,
+breadcrumbs, nav labels — everything visible to the user.
+
+Exception: proper nouns (Google, Facebook, BirdAI) and acronyms (CSV, PDF, API).
+
+---
+
+## § 2 — Token policy (no raw hex, no outside colors)
+
+⛔ **Only use colors from aero-ds tokens. No Tailwind color palette, no raw hex, no outside color libraries.**
+
+```tsx
+// ✅ Only these color sources are allowed:
+var(--primary)              // brand blue
+var(--destructive)          // error red
+var(--foreground)           // text
+var(--muted-foreground)     // secondary text
+var(--graph-green)          // success / 5-star
+var(--graph-sunflower)      // warning / 3-star
+var(--graph-carrot)         // orange / 2-star
+var(--graph-red)            // error alternate
+var(--graph-starfleet-blue) // chart blue
+var(--graph-*)              // any other graph token
+
+// ⛔ Banned — outside the token system:
+bg-red-600     bg-green-50    text-gray-700   // Tailwind palette
+#de1b0c        #4cae3d                        // raw hex
+```
+
+For dynamic color values that Tailwind can't statically analyse, use inline `style`:
+```tsx
+style={{ backgroundColor: `color-mix(in srgb, var(--graph-green) 12%, transparent)`, color: "var(--graph-green)" }}
+```
 
 - ⛔ Never write raw hex values in component code (`#1976d2`, `#212121`, etc.)
 - Always use CSS variables: `var(--primary)`, `var(--foreground)`, `var(--graph-sunflower)`

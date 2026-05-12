@@ -4,57 +4,58 @@ import { cva } from "class-variance-authority";
 import { cn } from "./utils";
 
 /*
- * Badge — Chakra-UI-inspired composable system.
- * variant:      solid | subtle | outline | surface | plain
- * colorPalette: gray | red | orange | yellow | green | teal | blue | cyan | purple | pink
- * size:         xs | sm | md | lg
- * Legacy aliases: default, secondary, destructive, success, warning
+ * Badge — subtle only, all colors from aero-ds --graph-* tokens.
+ * Uses inline style for color (dynamic CSS vars can't be statically analysed by Tailwind).
+ *
+ * colorPalette → token map (all from theme.css):
+ *   blue   → --graph-starfleet-blue    green  → --graph-green
+ *   red    → --destructive             teal   → --graph-turquoise
+ *   orange → --graph-carrot            purple → --graph-pastel-violet
+ *   yellow → --graph-sunflower         pink   → --graph-benevo-pink
+ *   cyan   → --graph-turquoise         gray   → --muted-foreground
  */
 
 export type BadgeColorPalette =
   | "gray" | "red" | "orange" | "yellow" | "green"
   | "teal" | "blue" | "cyan" | "purple" | "pink";
 
-export type BadgeVariant =
-  | "solid" | "subtle" | "outline" | "surface" | "plain"
-  | "default" | "secondary" | "destructive" | "success" | "warning";
+const TOKEN: Record<BadgeColorPalette, string> = {
+  blue:   "--graph-starfleet-blue",
+  red:    "--destructive",
+  orange: "--graph-carrot",
+  yellow: "--graph-sunflower",
+  green:  "--graph-green",
+  teal:   "--graph-turquoise",
+  cyan:   "--graph-turquoise",
+  purple: "--graph-pastel-violet",
+  pink:   "--graph-benevo-pink",
+  gray:   "--muted-foreground",
+};
+
+// Legacy variant aliases
+const LEGACY: Record<string, BadgeColorPalette> = {
+  default:     "blue",
+  secondary:   "gray",
+  destructive: "red",
+  success:     "green",
+  warning:     "yellow",
+};
 
 const BASE =
-  "inline-flex items-center justify-center gap-1 whitespace-nowrap shrink-0 w-fit font-medium [&>svg]:pointer-events-none [&>svg]:size-3 transition-colors overflow-hidden";
+  "inline-flex items-center justify-center gap-1 whitespace-nowrap shrink-0 w-fit font-medium rounded-sm [&>svg]:pointer-events-none [&>svg]:size-3 overflow-hidden";
 
-const SIZE: Record<string, string> = {
-  xs: "rounded-sm px-1.5 py-px  text-[10px]",
-  sm: "rounded-sm px-2   py-0.5 text-[11px]",
-  md: "rounded-md px-2   py-0.5 text-xs",
-  lg: "rounded-md px-2.5 py-1   text-sm",
-};
-
-const PALETTE: Record<BadgeColorPalette, Record<"solid"|"subtle"|"outline"|"surface"|"plain", string>> = {
-  gray:   { solid: "bg-gray-600 text-white dark:bg-gray-500", subtle: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300", outline: "border border-gray-400 text-gray-700 dark:border-gray-500 dark:text-gray-300", surface: "bg-gray-50 border border-gray-200 text-gray-700 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300", plain: "text-gray-700 dark:text-gray-300" },
-  red:    { solid: "bg-red-600 text-white dark:bg-red-500",   subtle: "bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-300",     outline: "border border-red-400 text-red-700 dark:border-red-500 dark:text-red-300",     surface: "bg-red-50 border border-red-200 text-red-700 dark:bg-red-950 dark:border-red-800 dark:text-red-300",     plain: "text-red-700 dark:text-red-300" },
-  orange: { solid: "bg-orange-500 text-white dark:bg-orange-400", subtle: "bg-orange-50 text-orange-700 dark:bg-orange-950 dark:text-orange-300", outline: "border border-orange-400 text-orange-700 dark:border-orange-500 dark:text-orange-300", surface: "bg-orange-50 border border-orange-200 text-orange-700 dark:bg-orange-950 dark:border-orange-800 dark:text-orange-300", plain: "text-orange-700 dark:text-orange-300" },
-  yellow: { solid: "bg-yellow-500 text-white dark:bg-yellow-400", subtle: "bg-yellow-50 text-yellow-700 dark:bg-yellow-950 dark:text-yellow-300", outline: "border border-yellow-400 text-yellow-700 dark:border-yellow-500 dark:text-yellow-300", surface: "bg-yellow-50 border border-yellow-200 text-yellow-700 dark:bg-yellow-950 dark:border-yellow-800 dark:text-yellow-300", plain: "text-yellow-700 dark:text-yellow-300" },
-  green:  { solid: "bg-green-600 text-white dark:bg-green-500",  subtle: "bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300",   outline: "border border-green-400 text-green-700 dark:border-green-500 dark:text-green-300",   surface: "bg-green-50 border border-green-200 text-green-700 dark:bg-green-950 dark:border-green-800 dark:text-green-300",   plain: "text-green-700 dark:text-green-300" },
-  teal:   { solid: "bg-teal-600 text-white dark:bg-teal-500",    subtle: "bg-teal-50 text-teal-700 dark:bg-teal-950 dark:text-teal-300",       outline: "border border-teal-400 text-teal-700 dark:border-teal-500 dark:text-teal-300",       surface: "bg-teal-50 border border-teal-200 text-teal-700 dark:bg-teal-950 dark:border-teal-800 dark:text-teal-300",       plain: "text-teal-700 dark:text-teal-300" },
-  blue:   { solid: "bg-blue-600 text-white dark:bg-blue-500",    subtle: "bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300",       outline: "border border-blue-400 text-blue-700 dark:border-blue-500 dark:text-blue-300",       surface: "bg-blue-50 border border-blue-200 text-blue-700 dark:bg-blue-950 dark:border-blue-800 dark:text-blue-300",       plain: "text-blue-700 dark:text-blue-300" },
-  cyan:   { solid: "bg-cyan-500 text-white dark:bg-cyan-400",    subtle: "bg-cyan-50 text-cyan-700 dark:bg-cyan-950 dark:text-cyan-300",       outline: "border border-cyan-400 text-cyan-700 dark:border-cyan-500 dark:text-cyan-300",       surface: "bg-cyan-50 border border-cyan-200 text-cyan-700 dark:bg-cyan-950 dark:border-cyan-800 dark:text-cyan-300",       plain: "text-cyan-700 dark:text-cyan-300" },
-  purple: { solid: "bg-purple-600 text-white dark:bg-purple-500", subtle: "bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-300", outline: "border border-purple-400 text-purple-700 dark:border-purple-500 dark:text-purple-300", surface: "bg-purple-50 border border-purple-200 text-purple-700 dark:bg-purple-950 dark:border-purple-800 dark:text-purple-300", plain: "text-purple-700 dark:text-purple-300" },
-  pink:   { solid: "bg-pink-600 text-white dark:bg-pink-500",    subtle: "bg-pink-50 text-pink-700 dark:bg-pink-950 dark:text-pink-300",       outline: "border border-pink-400 text-pink-700 dark:border-pink-500 dark:text-pink-300",       surface: "bg-pink-50 border border-pink-200 text-pink-700 dark:bg-pink-950 dark:border-pink-800 dark:text-pink-300",       plain: "text-pink-700 dark:text-pink-300" },
-};
-
-const LEGACY: Record<string, { v: "solid"|"subtle"; c: BadgeColorPalette }> = {
-  default:     { v: "solid",  c: "blue" },
-  secondary:   { v: "subtle", c: "gray" },
-  destructive: { v: "solid",  c: "red" },
-  success:     { v: "subtle", c: "green" },
-  warning:     { v: "subtle", c: "orange" },
+const SIZE_CLS: Record<string, string> = {
+  xs: "px-1.5 py-px  text-[10px]",
+  sm: "px-2   py-0.5 text-[11px]",
+  md: "px-2   py-0.5 text-xs",
+  lg: "px-2.5 py-1   text-sm",
 };
 
 export interface BadgeProps extends React.ComponentProps<"span"> {
-  /** Visual style. Default: "subtle". */
-  variant?: BadgeVariant;
-  /** Color palette. Default: "gray". */
+  /** Color palette — maps to aero-ds --graph-* tokens. Default: "gray". */
   colorPalette?: BadgeColorPalette;
+  /** Legacy variant alias. */
+  variant?: BadgeColorPalette | keyof typeof LEGACY;
   /** Size. Default: "sm". */
   size?: "xs" | "sm" | "md" | "lg";
   asChild?: boolean;
@@ -62,27 +63,32 @@ export interface BadgeProps extends React.ComponentProps<"span"> {
 
 function Badge({
   className,
-  variant = "subtle",
-  colorPalette = "gray",
+  style,
+  colorPalette,
+  variant,
   size = "sm",
   asChild = false,
   ...props
 }: BadgeProps) {
   const Comp = asChild ? Slot : "span";
 
-  let colorCls: string;
-  if (variant in LEGACY) {
-    const { v, c } = LEGACY[variant];
-    colorCls = PALETTE[c][v];
-  } else {
-    const v = variant as "solid"|"subtle"|"outline"|"surface"|"plain";
-    colorCls = PALETTE[colorPalette]?.[v] ?? PALETTE.gray.subtle;
-  }
+  const color: BadgeColorPalette =
+    colorPalette ??
+    (variant && variant in LEGACY ? LEGACY[variant as keyof typeof LEGACY] : undefined) ??
+    (variant as BadgeColorPalette) ??
+    "gray";
+
+  const cssVar = `var(${TOKEN[color]})`;
 
   return (
     <Comp
       data-slot="badge"
-      className={cn(BASE, SIZE[size], colorCls, className)}
+      className={cn(BASE, SIZE_CLS[size], className)}
+      style={{
+        backgroundColor: `color-mix(in srgb, ${cssVar} 12%, transparent)`,
+        color: cssVar,
+        ...style,
+      }}
       {...props}
     />
   );
