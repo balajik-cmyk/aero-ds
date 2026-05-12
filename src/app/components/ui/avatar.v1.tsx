@@ -5,6 +5,31 @@ import * as AvatarPrimitive from "@radix-ui/react-avatar";
 
 import { cn } from "./utils";
 
+export type AvatarColorPalette =
+  | "gray"
+  | "red"
+  | "green"
+  | "blue"
+  | "teal"
+  | "pink"
+  | "purple"
+  | "cyan"
+  | "orange"
+  | "yellow";
+
+const colorPaletteClasses: Record<AvatarColorPalette, string> = {
+  gray:   "bg-gray-500 text-white",
+  red:    "bg-red-800 text-red-100",
+  green:  "bg-green-700 text-green-100",
+  blue:   "bg-blue-800 text-blue-100",
+  teal:   "bg-teal-700 text-teal-100",
+  pink:   "bg-pink-800 text-pink-100",
+  purple: "bg-purple-700 text-purple-100",
+  cyan:   "bg-cyan-700 text-cyan-100",
+  orange: "bg-orange-700 text-orange-100",
+  yellow: "bg-amber-700 text-amber-100",
+};
+
 function Avatar({
   className,
   ...props
@@ -36,13 +61,17 @@ function AvatarImage({
 
 function AvatarFallback({
   className,
+  colorPalette = "gray",
   ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {
+}: React.ComponentProps<typeof AvatarPrimitive.Fallback> & {
+  colorPalette?: AvatarColorPalette;
+}) {
   return (
     <AvatarPrimitive.Fallback
       data-slot="avatar-fallback"
       className={cn(
-        "bg-muted flex size-full items-center justify-center rounded-full",
+        "flex size-full items-center justify-center rounded-full",
+        colorPaletteClasses[colorPalette],
         className,
       )}
       {...props}
