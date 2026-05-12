@@ -1,4 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { useState } from "react";
+import { AccountSettingsSheetStoryDemo } from "@/stories/App/Settings/AccountSettingsSheetStoryDemo";
+import { SocialPostPreviewSheet } from "@/app/components/social/SocialPostPreviewSheet";
+import type { SocialCalendarPost } from "@/app/components/social/socialPostShared";
 import {
   Sheet,
   SheetClose,
@@ -86,4 +90,51 @@ export const FloatingLg: Story = {
       </SheetContent>
     </Sheet>
   ),
+};
+
+// ── Designed previews ─────────────────────────────────────────────────────────
+
+export const AccountSettings: Story = {
+  name: "Preview / Account settings",
+  parameters: {
+    layout: "padded",
+    chromatic: { disableSnapshot: true },
+    docs: {
+      description: {
+        story: "Full designed drawer — profile + password fields, fixed header, scrollable body, sticky footer. Uses `FloatingSheetFrame` + `inset=\"floating\" floatingSize=\"md\"`.",
+      },
+    },
+  },
+  render: () => <AccountSettingsSheetStoryDemo />,
+};
+
+const MOCK_POST: SocialCalendarPost = {
+  id: "drawer-preview-1",
+  time: "12:48 PM",
+  platform: "facebook",
+  text: "McDonald's meals in every celebration that brings smiles, happiness, and togetherness.",
+  image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop&auto=format",
+  aiScheduled: [{ time: "6:48 PM" }, { time: "10:48 PM" }],
+};
+
+export const SocialPostPreview: Story = {
+  name: "Preview / Social post",
+  parameters: {
+    layout: "centered",
+    chromatic: { disableSnapshot: true },
+    docs: {
+      description: {
+        story: "Social post preview drawer — 480px floating sheet with `FloatingSheetFrame`.",
+      },
+    },
+  },
+  render: () => {
+    const [open, setOpen] = useState(false);
+    return (
+      <div className="flex flex-col gap-4">
+        <Button variant="outline" onClick={() => setOpen(true)}>Open social post preview</Button>
+        <SocialPostPreviewSheet open={open} onOpenChange={setOpen} post={MOCK_POST} />
+      </div>
+    );
+  },
 };
