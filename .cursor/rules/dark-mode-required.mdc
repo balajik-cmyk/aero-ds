@@ -1,0 +1,21 @@
+---
+description: Every component must support dark mode using semantic tokens
+globs: src/app/components/ui/**/*.{tsx,ts}
+alwaysApply: false
+---
+
+# Dark mode — required
+
+Use semantic tokens that flip automatically in `.dark`:
+
+```tsx
+// ✅ Correct — flips automatically
+<div className="bg-background text-foreground border border-border" />
+<div className="bg-muted text-muted-foreground" />
+<div className="bg-accent text-accent-foreground" />
+
+// ⛔ Breaks in dark mode
+<div className="bg-white text-[#212121] border-[#eaeaea]" />
+```
+
+Test by switching Storybook toolbar to **Dark** before marking any story complete.

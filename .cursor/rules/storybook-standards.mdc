@@ -1,0 +1,40 @@
+---
+description: Storybook story standards — autodocs, argTypes, layout, play()
+globs: src/stories/**/*.{tsx,ts}
+alwaysApply: false
+---
+
+# Storybook standards
+
+Every story file must have:
+
+```ts
+const meta: Meta<typeof Component> = {
+  title: "UI/ComponentName",      // always "UI/" prefix
+  component: Component,
+  tags: ["autodocs"],             // required — generates docs page
+  parameters: { layout: "centered" },  // centered | fullscreen | padded
+  argTypes: {
+    variant: { control: "select", options: ["default", "destructive"] },
+    size: { control: "select", options: ["xs", "sm", "md", "lg", "xl"] },
+    disabled: { control: "boolean" },
+  },
+}
+```
+
+Story naming: `Default` · `AllVariants` · `AllSizes` · `WithIcon` · `Disabled` · `WithError` · `IsLoading` · `Controlled` · `Playground`
+
+Animated stories:
+```ts
+parameters: { chromatic: { disableSnapshot: true } }
+```
+
+JSDoc on all props:
+```ts
+export interface SpinnerProps {
+  /** Size of the spinner. Defaults to "md". */
+  size?: "sm" | "md" | "lg"
+}
+```
+
+Check Accessibility panel — fix all red violations before marking done.

@@ -1,0 +1,20 @@
+---
+description: Accessibility required on every interactive component
+globs: src/app/components/ui/**/*.{tsx,ts}
+alwaysApply: false
+---
+
+# Accessibility — required
+
+| Element | Required |
+|---|---|
+| Icon-only buttons | `aria-label` |
+| Form inputs | `id` + `htmlFor` + `aria-describedby` for errors |
+| Overlays | `role`, `aria-modal`, focus trap, Escape closes |
+| Checkbox/switch | `aria-checked` |
+| Loading | `aria-busy="true"` + `aria-label` |
+| Error | `aria-invalid="true"` + `aria-describedby` |
+
+Keyboard minimum: Tab navigates · Enter/Space activates · Escape closes · Arrows in menus/groups.
+
+Run `@storybook/addon-a11y` panel — fix all red violations before PR.

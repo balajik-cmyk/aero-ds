@@ -1,0 +1,22 @@
+---
+description: Inter font only — no Roboto, weights 300+400 only, use var(--font-sans)
+globs: src/**/*.{tsx,ts,css}
+alwaysApply: true
+---
+
+# Font: Inter only
+
+- Font family: always `var(--font-sans)` — never write `font-family: 'Inter'` inline
+- Loaded weights: **300** and **400** only — 500/600/700/800/900 are not loaded
+- Base size: `13px`. All rem scale from this: xs=0.75rem · sm=0.875rem · base=1rem · lg=1.125rem · xl=1.25rem · 2xl=1.5rem
+- Figma shows Roboto — ignore it. Translate: 12px→text-xs · 14px→text-sm · 16px→text-lg · 18px→text-xl
+
+```tsx
+// ✅
+<p className="text-sm font-medium" />         // 0.875rem, weight 400
+<span className="text-xs font-light" />       // 0.75rem, weight 300
+
+// ⛔
+<p style={{ fontFamily: 'Inter', fontSize: '14px' }} />
+<p className="font-bold" />                   // still renders as 400 — misleading
+```

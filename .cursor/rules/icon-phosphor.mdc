@@ -1,0 +1,18 @@
+---
+description: Phosphor icons only for new components — explicit size prop required
+globs: src/app/components/ui/**/*.{tsx,ts}, src/stories/**/*.{tsx,ts}
+alwaysApply: false
+---
+
+# Icons — Phosphor only for new components
+
+```tsx
+// ✅ New components
+import { MagnifyingGlass, X, Check, Warning } from "@phosphor-icons/react"
+<MagnifyingGlass size={16} />   // always explicit size
+
+// ⚠️ Existing components (don't change, don't add new)
+import { Search, X } from "lucide-react"
+```
+
+Never rely on `1em` default size — always pass `size` prop explicitly.

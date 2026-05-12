@@ -1,0 +1,22 @@
+---
+description: 4/8/12/16px spacing rhythm — no magic pixel values
+globs: src/**/*.{tsx,ts,css}
+alwaysApply: true
+---
+
+# Spacing grid
+
+Standard rhythm: `4px` (gap-1/p-1) · `8px` (gap-2/p-2) · `12px` (gap-3/p-3) · `16px` (gap-4/p-4)
+
+```tsx
+// ✅
+<div className="flex gap-2 p-4" />
+<div className="px-4 py-2" />
+
+// ⛔ Magic numbers
+<div className="gap-[10px] p-[14px]" />
+<div style={{ padding: '10px' }} />
+```
+
+- Prefer `flex` + `gap` over `margin` between siblings
+- Border radius: `rounded` (--radius) · `rounded-sm` · `rounded-md` · `rounded-xl` · `rounded-full`

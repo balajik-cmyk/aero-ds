@@ -1,0 +1,22 @@
+---
+description: No raw hex in component code — always use CSS tokens
+globs: src/app/components/**/*.{tsx,ts}, src/stories/**/*.{tsx,ts}
+alwaysApply: true
+---
+
+# Token policy — no raw hex
+
+⛔ Never write raw hex values in component or story code.
+
+| Figma hex | ✅ Use token |
+|---|---|
+| `#1976d2` | `var(--primary)` = `#1E44CC` |
+| `#de1b0c` | `var(--destructive)` = `#d4183d` |
+| `#212121` | `var(--foreground)` |
+| `#555555` / `#8f8f8f` | `var(--muted-foreground)` |
+| `#f2f4f7` / `#eaeaea` | `var(--muted)` / `var(--border)` |
+| `#e5e9f0` | `var(--accent)` |
+| `#ffffff` | `var(--background)` or `var(--card)` |
+
+Chart colors use `var(--graph-*)` — see graph-colors.mdc.
+Exception: story demo scaffolding may use hex.

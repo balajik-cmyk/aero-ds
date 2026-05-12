@@ -1,0 +1,43 @@
+---
+description: Component file structure — .v1.tsx pattern, forwardRef, cva, named exports
+globs: src/app/components/ui/**/*.{tsx,ts}
+alwaysApply: false
+---
+
+# Component file structure
+
+Every new component needs two files:
+- `component-name.v1.tsx` — implementation lives here
+- `component-name.tsx` — re-exports only: `export * from "./component-name.v1"`
+
+```tsx
+// component-name.v1.tsx
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { cn } from "@/app/components/ui/utils"
+
+const componentVariants = cva("base-classes", {
+  variants: { variant: { default: "...", destructive: "..." } },
+  defaultVariants: { variant: "default" },
+})
+
+export interface ComponentProps
+  extends React.HTMLAttributes<HTMLElement>,
+    VariantProps<typeof componentVariants> {}
+
+const Component = React.forwardRef<HTMLElement, ComponentProps>(
+  ({ className, variant, ...props }, ref) => (
+    <element ref={ref} className={cn(componentVariants({ variant }), className)} {...props} />
+  )
+)
+Component.displayName = "Component"
+
+export { Component, componentVariants }
+```
+
+Rules:
+- `forwardRef` on all primitives
+- Named exports only — no `export default`
+- Export variants alongside component
+- No `any` types
+- `asChild` prop (Radix Slot) on Button, Badge, Card

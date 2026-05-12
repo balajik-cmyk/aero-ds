@@ -1,0 +1,26 @@
+---
+description: Graph color tokens for charts — use var(--graph-*) never raw hex
+globs: src/stories/Charts/**/*.{tsx,ts}, src/app/components/ui/chart*.{tsx,ts}
+alwaysApply: false
+---
+
+# Graph colors
+
+All charts use `var(--graph-*)` tokens. Never raw hex.
+
+Preferred sequence (Set 1 — use in order):
+1. `--graph-starfleet-blue`
+2. `--graph-pastel-violet`
+3. `--graph-benevo-pink`
+4. `--graph-sunflower`
+5. `--graph-carrot`
+6. `--graph-bright-green`
+7. `--graph-turquoise`
+
+Each has a compare variant: `--graph-[name]-compare` (lighter, for grouped/comparison charts)
+
+Ratings (0–5 stars): iron → red → carrot → sunflower → bright-green → green
+
+Social: `--graph-social-facebook/youtube/google/linkedin/x`
+
+Full token list is in `src/tokens/theme.css` under `/* Graph colors */`.
