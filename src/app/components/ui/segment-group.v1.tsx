@@ -7,9 +7,7 @@ import { cn } from "./utils";
 
 /*
  * SegmentGroup — horizontal segmented control, 2–4 mutually exclusive items.
- *
- * Visual: muted pill track → active item = bg-background shadow-sm pill
- * Primitive: Radix ToggleGroup type="single" (keyboard nav, aria-pressed)
+ * Primitive: Radix ToggleGroup type="single"
  * Tokens: bg-muted, bg-background, text-foreground, text-muted-foreground
  */
 
@@ -20,7 +18,6 @@ const segmentGroupItemVariants = cva(
     "text-muted-foreground hover:text-foreground",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1",
     "disabled:pointer-events-none disabled:opacity-50",
-    // active state — Radix sets data-state="on"
     "data-[state=on]:bg-background data-[state=on]:text-foreground data-[state=on]:shadow-sm",
   ].join(" "),
   {
@@ -38,23 +35,43 @@ const segmentGroupItemVariants = cva(
 type SegmentGroupContextValue = VariantProps<typeof segmentGroupItemVariants>;
 const SegmentGroupContext = React.createContext<SegmentGroupContextValue>({ size: "md" });
 
-export interface SegmentGroupProps
-  extends Omit<React.ComponentProps<typeof ToggleGroupPrimitive.Root>, "type"> {
+export interface SegmentGroupProps {
+  /** Controlled selected value. */
+  value?: string;
+  /** Uncontrolled default value. */
+  defaultValue?: string;
+  /** Called when the selected value changes. */
+  onValueChange?: (value: string) => void;
+  /** Disables the whole group. */
+  disabled?: boolean;
   /** Size of all items. Default: "md". */
   size?: "sm" | "md" | "lg";
+  className?: string;
+  children?: React.ReactNode;
 }
 
-function SegmentGroup({ className, size = "md", children, ...props }: SegmentGroupProps) {
+function SegmentGroup({
+  className,
+  size = "md",
+  children,
+  value,
+  defaultValue,
+  onValueChange,
+  disabled,
+}: SegmentGroupProps) {
   return (
     <SegmentGroupContext.Provider value={{ size }}>
       <ToggleGroupPrimitive.Root
         type="single"
         data-slot="segment-group"
+        value={value}
+        defaultValue={defaultValue}
+        onValueChange={onValueChange}
+        disabled={disabled}
         className={cn(
           "inline-flex items-center rounded-md bg-muted p-0.5 gap-0.5",
           className
         )}
-        {...props}
       >
         {children}
       </ToggleGroupPrimitive.Root>
