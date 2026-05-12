@@ -10,7 +10,7 @@ import { Button } from "@/app/components/ui/button";
 import { ArrowUp, Paperclip, Mic, Square, Send } from "lucide-react";
 
 const meta: Meta = {
-  title: "UI/PromptInput",
+  title: "App/PromptInput",
   tags: ["autodocs"],
 };
 

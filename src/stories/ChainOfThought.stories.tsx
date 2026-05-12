@@ -8,7 +8,7 @@ import {
 } from "@/app/components/ui/chain-of-thought";
 
 const meta: Meta = {
-  title: "UI/Chain of thought",
+  title: "App/ChainOfThought",
   tags: ["autodocs"],
   parameters: {
     layout: "padded",

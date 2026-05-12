@@ -35,12 +35,30 @@ const baseColors = [
   { name: "Muted foreground",   token: "--muted-foreground",   cls: "bg-muted-foreground" },
 ];
 
-const chartColors = [
-  { name: "Chart 1", token: "--chart-1", cls: "bg-chart-1" },
-  { name: "Chart 2", token: "--chart-2", cls: "bg-chart-2" },
-  { name: "Chart 3", token: "--chart-3", cls: "bg-chart-3" },
-  { name: "Chart 4", token: "--chart-4", cls: "bg-chart-4" },
-  { name: "Chart 5", token: "--chart-5", cls: "bg-chart-5" },
+const graphColors: { name: string; token: string; compare: string }[] = [
+  { name: "Starfleet Blue",  token: "--graph-starfleet-blue",  compare: "--graph-starfleet-blue-compare" },
+  { name: "Pastel Violet",   token: "--graph-pastel-violet",   compare: "--graph-pastel-violet-compare" },
+  { name: "Benevo Pink",     token: "--graph-benevo-pink",     compare: "--graph-benevo-pink-compare" },
+  { name: "Sunflower",       token: "--graph-sunflower",       compare: "--graph-sunflower-compare" },
+  { name: "Carrot",          token: "--graph-carrot",          compare: "--graph-carrot-compare" },
+  { name: "Bright Green",    token: "--graph-bright-green",    compare: "--graph-bright-green-compare" },
+  { name: "Turquoise",       token: "--graph-turquoise",       compare: "--graph-turquoise-compare" },
+  { name: "Plum",            token: "--graph-plum",            compare: "--graph-plum-compare" },
+  { name: "Indigo",          token: "--graph-indigo",          compare: "--graph-indigo-compare" },
+  { name: "Violet",          token: "--graph-violet",          compare: "--graph-violet-compare" },
+  { name: "Aqua",            token: "--graph-aqua",            compare: "--graph-aqua-compare" },
+  { name: "Hadfield",        token: "--graph-hadfield",        compare: "--graph-hadfield-compare" },
+  { name: "Green",           token: "--graph-green",           compare: "--graph-green-compare" },
+  { name: "Iron",            token: "--graph-iron",            compare: "--graph-iron-compare" },
+  { name: "Red",             token: "--graph-red",             compare: "--graph-red-compare" },
+];
+
+const socialColors: { name: string; token: string; compare: string }[] = [
+  { name: "Facebook",  token: "--graph-social-facebook",  compare: "--graph-social-facebook-compare" },
+  { name: "YouTube",   token: "--graph-social-youtube",   compare: "--graph-social-youtube-compare" },
+  { name: "Google",    token: "--graph-social-google",    compare: "--graph-social-google-compare" },
+  { name: "LinkedIn",  token: "--graph-social-linkedin",  compare: "--graph-social-linkedin-compare" },
+  { name: "X",         token: "--graph-social-x",         compare: "--graph-social-x-compare" },
 ];
 
 const sidebarColors = [
@@ -72,11 +90,45 @@ export const Colors: Story = {
       </div>
 
       <div>
-        <SectionLabel>Chart colours</SectionLabel>
+        <SectionLabel>Graph colours — preferred sequence Set 1 (use in order for multi-series charts)</SectionLabel>
         <div className="grid grid-cols-5 gap-4">
-          {chartColors.map(({ name, token, cls }) => (
+          {graphColors.map(({ name, token, compare }) => (
             <div key={token} className="flex flex-col gap-2">
-              <div className={`h-14 w-full rounded-lg ${cls}`} />
+              <div className="flex gap-1">
+                <div
+                  className="h-14 flex-1 rounded-lg"
+                  style={{ background: `var(${token})` }}
+                />
+                <div
+                  className="h-14 flex-1 rounded-lg border"
+                  style={{ background: `var(${compare})` }}
+                />
+              </div>
+              <div className="flex flex-col gap-0.5">
+                <p className="text-sm text-foreground">{name}</p>
+                <p className="font-mono text-xs text-muted-foreground">{token}</p>
+                <p className="font-mono text-xs text-muted-foreground opacity-60">{compare}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <SectionLabel>Social platform colours</SectionLabel>
+        <div className="grid grid-cols-5 gap-4">
+          {socialColors.map(({ name, token, compare }) => (
+            <div key={token} className="flex flex-col gap-2">
+              <div className="flex gap-1">
+                <div
+                  className="h-14 flex-1 rounded-lg"
+                  style={{ background: `var(${token})` }}
+                />
+                <div
+                  className="h-14 flex-1 rounded-lg border"
+                  style={{ background: `var(${compare})` }}
+                />
+              </div>
               <div className="flex flex-col gap-0.5">
                 <p className="text-sm text-foreground">{name}</p>
                 <p className="font-mono text-xs text-muted-foreground">{token}</p>

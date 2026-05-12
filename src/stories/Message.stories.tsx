@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Message, MessageContent } from "@/app/components/ui/message";
 
 const meta: Meta = {
-  title: "UI/Message",
+  title: "App/Message",
   tags: ["autodocs"],
   parameters: {
     layout: "padded",
