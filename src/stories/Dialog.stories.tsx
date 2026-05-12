@@ -102,3 +102,54 @@ export const Destructive: Story = {
     </Dialog>
   ),
 };
+
+export const Sizes: Story = {
+  render: () => (
+    <div className="flex flex-wrap gap-3">
+      {(["sm", "default", "lg", "xl", "full"] as const).map(size => (
+        <Dialog key={size}>
+          <DialogTrigger asChild>
+            <Button variant="outline" size="sm">{size}</Button>
+          </DialogTrigger>
+          <DialogContent className={
+            size === "sm" ? "max-w-sm" :
+            size === "lg" ? "max-w-2xl" :
+            size === "xl" ? "max-w-4xl" :
+            size === "full" ? "max-w-[95vw]" : "max-w-lg"
+          }>
+            <DialogHeader>
+              <DialogTitle>Dialog — {size}</DialogTitle>
+              <DialogDescription>This is the {size} size variant.</DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <DialogClose asChild><Button variant="outline">Close</Button></DialogClose>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      ))}
+    </div>
+  ),
+};
+
+export const Placements: Story = {
+  render: () => (
+    <div className="flex flex-wrap gap-3">
+      {(["center", "top"] as const).map(placement => (
+        <Dialog key={placement}>
+          <DialogTrigger asChild>
+            <Button variant="outline" size="sm">{placement}</Button>
+          </DialogTrigger>
+          <DialogContent className={placement === "top" ? "top-16 translate-y-0" : ""}>
+            <DialogHeader>
+              <DialogTitle>Dialog — {placement}</DialogTitle>
+              <DialogDescription>Placed at the {placement} of the screen.</DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <DialogClose asChild><Button variant="outline">Close</Button></DialogClose>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      ))}
+    </div>
+  ),
+};

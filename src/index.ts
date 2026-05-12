@@ -40,3 +40,9 @@ export { DateRangePicker, type DateRangePickerProps, type DateRange } from "./ap
 export { Stepper, type StepperProps, type Step, type StepStatus } from "./app/components/ui/stepper";
 export { Tree, type TreeProps, type TreeNode } from "./app/components/ui/tree";
 export { ColumnCustomizer, type ColumnCustomizerProps, type ColumnField } from "./app/components/ui/column-customizer";
+
+// ── New UI components (remaining plan items) ─────────────────────────────────
+export { TimePicker, type TimePickerProps, type TimeValue } from "./app/components/ui/time-picker";
+export { Chip, type ChipProps } from "./app/components/ui/chip";
+export { HyperlinkButton, type HyperlinkButtonProps } from "./app/components/ui/hyperlink-button";
+export * from "./app/components/ui/menu";

@@ -89,3 +89,79 @@ export const Disabled: Story = {
     </Select>
   ),
 };
+
+export const Async: Story = {
+  render: () => {
+    const { useState, useEffect } = require("react");
+    const [options, setOptions] = useState<string[]>([]);
+    const [loading, setLoading] = useState(false);
+    const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+      if (!open || options.length) return;
+      setLoading(true);
+      setTimeout(() => {
+        setOptions(["Google", "Facebook", "Yelp", "LinkedIn", "TripAdvisor"]);
+        setLoading(false);
+      }, 800);
+    }, [open]);
+
+    return (
+      <Select onOpenChange={setOpen}>
+        <SelectTrigger className="w-56">
+          <SelectValue placeholder="Select platform..." />
+        </SelectTrigger>
+        <SelectContent>
+          {loading ? (
+            <div className="flex items-center justify-center py-4 text-xs text-muted-foreground gap-2">
+              <span className="h-3 w-3 rounded-full border border-current border-t-transparent animate-spin" />
+              Loading...
+            </div>
+          ) : (
+            options.map(o => <SelectItem key={o} value={o.toLowerCase()}>{o}</SelectItem>)
+          )}
+        </SelectContent>
+      </Select>
+    );
+  },
+};
+
+export const InfiniteScroll: Story = {
+  render: () => {
+    const { useState, useRef, useCallback } = require("react");
+    const PAGE = 10;
+    const all = Array.from({ length: 50 }, (_, i) => `Location ${i + 1}`);
+    const [visible, setVisible] = useState(all.slice(0, PAGE));
+    const [loading, setLoading] = useState(false);
+    const observerRef = useRef<HTMLDivElement>(null);
+
+    const loadMore = useCallback(() => {
+      if (loading || visible.length >= all.length) return;
+      setLoading(true);
+      setTimeout(() => {
+        setVisible(prev => all.slice(0, prev.length + PAGE));
+        setLoading(false);
+      }, 600);
+    }, [loading, visible.length]);
+
+    return (
+      <Select>
+        <SelectTrigger className="w-56">
+          <SelectValue placeholder="Select location..." />
+        </SelectTrigger>
+        <SelectContent className="max-h-56 overflow-y-auto" onScroll={e => {
+          const t = e.currentTarget;
+          if (t.scrollTop + t.clientHeight >= t.scrollHeight - 20) loadMore();
+        }}>
+          {visible.map(l => <SelectItem key={l} value={l.toLowerCase().replace(" ", "-")}>{l}</SelectItem>)}
+          {loading && (
+            <div className="flex justify-center py-2 text-xs text-muted-foreground gap-2">
+              <span className="h-3 w-3 rounded-full border border-current border-t-transparent animate-spin" />
+              Loading more...
+            </div>
+          )}
+        </SelectContent>
+      </Select>
+    );
+  },
+};
