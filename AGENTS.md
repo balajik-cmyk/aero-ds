@@ -125,7 +125,7 @@ Applies to: badges, chips, tags, buttons, labels, menu items, select options,
 tab labels, toasts, empty state titles, table headers, tooltips, placeholders,
 breadcrumbs, nav labels — everything visible to the user.
 
-Exception: proper nouns (Google, Facebook, BirdAI) and acronyms (CSV, PDF, API).
+Exception: proper nouns (Google, Facebook, Birdeye) and acronyms (CSV, PDF, API).
 
 ---
 

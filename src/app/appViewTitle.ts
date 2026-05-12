@@ -47,11 +47,11 @@ export function getAppViewTitle(view: AppView): string {
     case "agents-builder":
     case "agent-detail":
     case "birdai-reports":
-      return "BirdAI";
+      return "Agents";
     case "agents-onboarding":
-      return "BirdAI setup";
+      return "Agents setup";
     case "birdai-journeys":
-      return "BirdAI";
+      return "Agents";
     case "conversation-stream":
       return "Conversation Stream";
     default:

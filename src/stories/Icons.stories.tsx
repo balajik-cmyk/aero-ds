@@ -109,7 +109,7 @@ export const L1Navigation: Story = {
       </div>
       <Section title="L1 Icon Strip — Phosphor Regular / Fill on active">
         {[
-          { name: "Sparkle",          label: "Agents (BirdAI)" },
+          { name: "Sparkle",          label: "Agents" },
           { name: "House",            label: "Home" },
           { name: "ChatDots",         label: "Inbox" },
           { name: "MapPin",           label: "Listings" },

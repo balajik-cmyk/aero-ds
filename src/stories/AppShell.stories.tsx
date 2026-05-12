@@ -24,8 +24,8 @@ import type { AppView } from "@/app/App";
 /* ─── View metadata for the view switcher ─── */
 const VIEWS: { value: AppView; label: string; group: string }[] = [
   { value: "business-overview",    label: "Overview",                group: "Home" },
-  { value: "agents-monitor",       label: "BirdAI — Monitor", group: "BirdAI" },
-  { value: "birdai-reports",       label: "BirdAI — Reports (in-app)", group: "BirdAI" },
+  { value: "agents-monitor",       label: "Agents — Monitor", group: "Agents" },
+  { value: "birdai-reports",       label: "Agents — Reports", group: "Agents" },
   { value: "dashboard",            label: "Reports — Dashboard",     group: "Reports" },
   { value: "shared-by-me",         label: "Reports — Shared by me",  group: "Reports" },
   { value: "reviews",              label: "Reviews",                 group: "Modules" },
@@ -242,7 +242,7 @@ export const Default: Story = {
 };
 
 export const StartingWithAgents: Story = {
-  name: "App Shell — start: BirdAI",
+  name: "App shell — start: Agents",
   render: () => {
     const [view, setView] = useState<AppView>("agents-monitor");
 
