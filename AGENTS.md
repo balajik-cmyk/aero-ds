@@ -114,6 +114,34 @@ React · Vite · Tailwind v4 · shadcn-style primitives · Radix UI · Recharts 
 - Prefer `flex` + `gap` over `margin` for spacing between sibling elements
 - ⛔ No magic numbers: `w-[17px]`, `mt-[6px]` — use scale values
 
+## § 3b — Border radius (NEVER change — fixed px, not rem)
+
+⛔ **STRICT: Do not modify border radius tokens in `theme.css`. Do not use `calc()` or `rem` for radius. Do not introduce new radius values.**
+
+The radius tokens are fixed pixel values matching Figma Corner Radius spec and birdeyev2:
+
+| Token | Value | Tailwind class | Use for |
+|---|---|---|---|
+| `--radius-sm` | `4px` | `rounded-sm` | Checkbox, small badges, tight elements |
+| `--radius-md` | `8px` | `rounded-md` | Buttons, inputs, dropdowns, chips — **default for controls** |
+| `--radius` | `8px` | `rounded-lg` | Same as md — default surface |
+| `--radius-xl` | `12px` | `rounded-xl` | Cards, modals, drawers, popovers |
+| `rounded-full` | `9999px` | `rounded-full` | Pills, avatars, switches |
+
+**Why fixed px:** `calc(rem - px)` at 13px base gave wrong values — e.g. `--radius-md` became 6.125px instead of 8px. This was a visual regression from the original design.
+
+```tsx
+// ✅ Correct
+<div className="rounded-md" />     // 8px — controls
+<div className="rounded-xl" />     // 12px — cards/modals
+<div className="rounded-full" />   // pills/avatars
+
+// ⛔ Never
+<div className="rounded-[6px]" />  // bypasses token
+<div style={{ borderRadius: '8px' }} />  // inline style
+// ⛔ Never change theme.css radius tokens to rem or calc()
+```
+
 ## § 4 — Component file structure
 
 Every `ui/*.tsx` file follows this pattern:
