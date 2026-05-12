@@ -22,7 +22,7 @@ import {
 } from "@/app/components/ui/chart";
 
 const meta: Meta = {
-  title: "UI/Chart/Examples",
+  title: "Components/Charts/Overview/Examples",
   tags: ["autodocs"],
 };
 
