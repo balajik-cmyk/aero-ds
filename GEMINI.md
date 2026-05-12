@@ -5,6 +5,79 @@
 
 ---
 
+## ⚡ Mandatory execution order — follow every step, every time
+
+When creating or updating any component, execute these steps **in this exact order**. Do not skip, reorder, or combine steps.
+
+```
+STEP 1  Read the nearest existing component
+        → Open the most similar .v1.tsx in src/app/components/ui/
+        → Follow its exact import order, CVA structure, forwardRef pattern
+
+STEP 2  Check for a Radix primitive
+        → Dialog, Popover, Tooltip, Checkbox, RadioGroup, Switch, Select,
+          Tabs, Accordion, Slider, ScrollArea → use @radix-ui/* as base
+
+STEP 3  Create src/app/components/ui/[name].v1.tsx
+        → Implementation lives here
+        → Inter font (var(--font-sans)) · no raw hex · system tokens only
+        → forwardRef · cva variants · Phosphor icons · xs/sm/md/lg/xl sizes
+        → displayName set · named exports only (no export default)
+
+STEP 4  Create src/app/components/ui/[name].tsx
+        → One line only: export * from "./[name].v1"
+
+STEP 5  Create src/stories/[Category]/[Name].stories.tsx
+        → Title: "Components/[Category]/[Name]/Examples"
+        → tags: ["autodocs"] · argTypes for variant/size/disabled
+        → parameters.layout: "centered" | "fullscreen" | "padded"
+        → Chromatic disableSnapshot on animated stories
+
+STEP 6  Create src/stories/docs/[Name].usage.mdx
+        → Title: "Components/[Category]/[Name]/Usage"
+        → Sections: Parts · When to use · When not to use ·
+          Content guidelines · Behaviour · Related
+
+STEP 7  Create src/stories/docs/[Name].accessibility.mdx
+        → Title: "Components/[Category]/[Name]/Accessibility"
+        → Sections: Keyboard interaction table · Screen reader behaviour · Focus
+
+STEP 8  Add to src/index.ts
+        → export { ComponentName, type ComponentNameProps } from "./app/components/ui/[name]"
+        → Without this the component is never published
+
+STEP 9  Run TypeScript check
+        → npx tsc --noEmit
+        → Fix ALL errors in new files before continuing
+
+STEP 10 Verify in Storybook
+        → Check light AND dark mode (toolbar toggle)
+        → Check Accessibility panel — fix all red violations
+        → Confirm all story variants render correctly
+
+STEP 11 Commit + push
+        → git add [specific files only]
+        → Commit message: feat(ui): add [Name] component
+        → git push origin main
+```
+
+**Category map for story titles:**
+
+| Component type | Story title prefix |
+|---|---|
+| Button, Input, Select, Checkbox, Switch, DatePicker, Search, Chip, etc. | `Components/Forms and input/` |
+| Avatar, Icons | `Components/Images and icons/` |
+| Spinner, Skeleton, Progress | `Components/Loading/` |
+| Alert, Banner, Dialog, Toast, InlineMessage | `Components/Messaging/` |
+| Breadcrumb, Menu, Tabs, Pagination | `Components/Navigation/` |
+| Drawer, Popover, Tooltip | `Components/Overlays and layering/` |
+| Badge, Tag, EmptyState | `Components/Status indicators/` |
+| Accordion, Card, Table, Carousel | `Components/Text and data display/` |
+| Stepper, Tree, ColumnCustomizer | `Components/Complex/` |
+| Chart stories | `Components/Charts/` |
+
+---
+
 ## Stack
 
 React · Vite · Tailwind v4 · shadcn-style primitives · Radix UI · Recharts · Storybook 8 · TypeScript 6 · Inter font
