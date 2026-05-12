@@ -46,9 +46,12 @@ STEP 8  Add to src/index.ts
         → export { ComponentName, type ComponentNameProps } from "./app/components/ui/[name]"
         → Without this the component is never published
 
-STEP 9  Run TypeScript check
-        → npx tsc --noEmit
-        → Fix ALL errors in new files before continuing
+STEP 9  Run BOTH TypeScript checks — dev AND build  ⛔ Both must pass
+        → npx tsc --noEmit                      (dev tsconfig — catches runtime errors)
+        → npx tsc -p tsconfig.build.json --noEmit  (build tsconfig — catches publish errors)
+        → Fix ALL errors before continuing
+        → Common trap: tsconfig.build.json requires "jsx": "react-jsx" for .tsx files
+          and "paths": {"@/*": ["./src/*"]} for internal imports — never remove these
 
 STEP 10 Verify in Storybook
         → Check light AND dark mode (toolbar toggle)
@@ -126,7 +129,31 @@ React · Vite · Tailwind v4 · shadcn-style primitives · Radix UI · Recharts 
 - Prefer `flex` + `gap` over `margin` for spacing between sibling elements
 - ⛔ No magic numbers: `w-[17px]`, `mt-[6px]` — use scale values
 
-## § 3b — Border radius (NEVER change — fixed px, not rem)
+## § 3b — tsconfig.build.json (NEVER remove these settings)
+
+⛔ **STRICT: Do not remove `jsx`, `paths`, or `isolatedModules` from `tsconfig.build.json`. These are required for the publish CI to work.**
+
+```json
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",          // ← REQUIRED for .tsx components — removing breaks npm publish
+    "paths": { "@/*": ["./src/*"] }, // ← REQUIRED for @/ imports inside components
+    "isolatedModules": true,     // ← REQUIRED for bundler compatibility
+    "declaration": true,         // ← REQUIRED to emit .d.ts type files for consumers
+    "outDir": "./dist"           // ← REQUIRED — publish.yml runs tsc then publishes dist/
+  }
+}
+```
+
+**Why this matters:** `tsconfig.build.json` is used by `npm run build` in the publish workflow. If `jsx` is missing, every `.tsx` component export fails with `'--jsx' is not set`. The dev `tsconfig.json` has JSX set correctly — but the build one is separate and must be kept in sync when new component types are added.
+
+**Checklist before any PR that touches components:**
+- [ ] `npx tsc --noEmit` passes (dev)
+- [ ] `npx tsc -p tsconfig.build.json --noEmit` passes (build)
+
+---
+
+## § 3c — Border radius (NEVER change — fixed px, not rem)
 
 ⛔ **STRICT: Do not modify border radius tokens in `theme.css`. Do not use `calc()` or `rem` for radius. Do not introduce new radius values.**
 
