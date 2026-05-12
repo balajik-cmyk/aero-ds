@@ -5,15 +5,16 @@ import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { XIcon } from "lucide-react";
 
 import { cn } from "./utils";
+import { MODAL_OVERLAY_VISUAL_CLASS } from "./modalOverlayClasses";
 
 /** Width preset for SheetContent with inset="floating" (right/left only). */
 export type SheetFloatingSize = "sm" | "md" | "lg" | "xl";
 
-const floatingWidths: Record<SheetFloatingSize, string> = {
+const floatingSheetWidthClasses: Record<SheetFloatingSize, string> = {
   sm: "w-[340px] max-w-[min(340px,calc(100vw-2rem))]",
   md: "w-[480px] max-w-[min(480px,calc(100vw-2rem))]",
   lg: "w-[640px] max-w-[min(640px,calc(100vw-2rem))]",
-  xl: "w-[min(85vw,calc(100vw-2rem))]",
+  xl: "w-[min(85vw,calc(100vw-2rem))] max-w-[min(85vw,calc(100vw-2rem))]",
 };
 
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
@@ -37,7 +38,8 @@ function SheetOverlay({ className, ...props }: React.ComponentProps<typeof Sheet
     <SheetPrimitive.Overlay
       data-slot="sheet-overlay"
       className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50",
+        MODAL_OVERLAY_VISUAL_CLASS,
         className,
       )}
       {...props}
@@ -50,19 +52,17 @@ function SheetContent({
   children,
   side = "right",
   inset = "edge",
-  floatingSize = "md",
+  floatingSize = "sm",
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Content> & {
   side?: "top" | "right" | "bottom" | "left";
-  /**
-   * `edge` (default) — full-height, reaches screen edge.
-   * `floating` — inset from viewport edges with rounded corners. Right/left only.
-   */
+  /** `floating`: narrow card inset from viewport edges with rounded corners. Right/left only. */
   inset?: "edge" | "floating";
-  /** Panel width when inset="floating". Default "md" (480px). */
+  /** Panel width when inset="floating". Default "sm" (340px). */
   floatingSize?: SheetFloatingSize;
 }) {
   const isFloating = inset === "floating" && (side === "right" || side === "left");
+  const floatW = floatingSheetWidthClasses[floatingSize];
 
   return (
     <SheetPortal>
@@ -70,23 +70,19 @@ function SheetContent({
       <SheetPrimitive.Content
         data-slot="sheet-content"
         data-inset={isFloating ? "floating" : "edge"}
+        data-floating-size={isFloating ? floatingSize : undefined}
         className={cn(
           "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-300",
-          // right — edge
           side === "right" && inset === "edge" &&
-            "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 border-l sm:max-w-sm",
-          // right — floating (rounded, inset from edges)
-          side === "right" && isFloating &&
-            cn("data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right top-4 right-4 bottom-4 h-[calc(100vh-2rem)] rounded-xl", floatingWidths[floatingSize]),
-          // left — edge
+            "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 sm:max-w-sm",
+          side === "right" && inset === "floating" &&
+            cn("data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right top-4 right-4 bottom-4 left-auto h-[calc(100vh-2rem)] overflow-y-auto rounded-xl", floatW),
           side === "left" && inset === "edge" &&
-            "data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-sm",
-          // left — floating
-          side === "left" && isFloating &&
-            cn("data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left top-4 bottom-4 left-4 h-[calc(100vh-2rem)] rounded-xl", floatingWidths[floatingSize]),
-          // top / bottom (edge only)
-          side === "top" && "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b",
-          side === "bottom" && "data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto border-t",
+            "data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-3/4 sm:max-w-sm",
+          side === "left" && inset === "floating" &&
+            cn("data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left top-4 bottom-4 left-4 right-auto h-[calc(100vh-2rem)] overflow-y-auto rounded-xl", floatW),
+          side === "top" && "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto",
+          side === "bottom" && "data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto",
           className,
         )}
         {...props}
@@ -106,15 +102,33 @@ function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
 }
 
 function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
-  return <div data-slot="sheet-footer" className={cn("mt-auto flex flex-col gap-2 p-4", className)} {...props} />;
+  return (
+    <div
+      data-slot="sheet-footer"
+      className={cn("mt-auto flex flex-col-reverse gap-2 p-4 sm:flex-row sm:justify-end", className)}
+      {...props}
+    />
+  );
 }
 
 function SheetTitle({ className, ...props }: React.ComponentProps<typeof SheetPrimitive.Title>) {
-  return <SheetPrimitive.Title data-slot="sheet-title" className={cn("text-foreground font-semibold", className)} {...props} />;
+  return (
+    <SheetPrimitive.Title
+      data-slot="sheet-title"
+      className={cn("text-foreground font-semibold", className)}
+      {...props}
+    />
+  );
 }
 
 function SheetDescription({ className, ...props }: React.ComponentProps<typeof SheetPrimitive.Description>) {
-  return <SheetPrimitive.Description data-slot="sheet-description" className={cn("text-muted-foreground text-sm", className)} {...props} />;
+  return (
+    <SheetPrimitive.Description
+      data-slot="sheet-description"
+      className={cn("text-muted-foreground text-sm", className)}
+      {...props}
+    />
+  );
 }
 
 export {
