@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Avatar, AvatarImage, AvatarFallback } from "@/app/components/ui/avatar";
+import { User } from "@phosphor-icons/react";
+import { Avatar, AvatarImage, AvatarFallback, type AvatarColorPalette } from "@/app/components/ui/avatar";
 
 const meta: Meta<typeof Avatar> = {
   title: "Components/Images and icons/Avatar/Examples",
@@ -9,14 +10,6 @@ const meta: Meta<typeof Avatar> = {
 
 export default meta;
 type Story = StoryObj<typeof Avatar>;
-
-export const WithFallback: Story = {
-  render: () => (
-    <Avatar>
-      <AvatarFallback>JD</AvatarFallback>
-    </Avatar>
-  ),
-};
 
 export const WithImage: Story = {
   render: () => (
@@ -49,12 +42,47 @@ export const Sizes: Story = {
   ),
 };
 
+const PALETTES: AvatarColorPalette[] = [
+  "gray", "red", "green", "blue", "teal",
+  "pink", "purple", "cyan", "orange", "yellow",
+];
+
+export const Colors: Story = {
+  name: "Colors",
+  render: () => (
+    <div className="flex flex-col gap-3">
+      <p className="text-sm text-muted-foreground">
+        Use the <code className="bg-muted px-1 rounded text-xs">colorPalette</code> prop to change the color of the avatar
+      </p>
+      <div className="flex flex-col gap-3">
+        {PALETTES.map((palette) => (
+          <div key={palette} className="flex items-center gap-4">
+            <span className="w-16 text-sm text-muted-foreground">{palette}</span>
+            <Avatar>
+              <AvatarImage src="https://github.com/shadcn.png" alt="User" />
+              <AvatarFallback colorPalette={palette}>SA</AvatarFallback>
+            </Avatar>
+            <Avatar>
+              <AvatarFallback colorPalette={palette} className="text-sm font-medium">SA</AvatarFallback>
+            </Avatar>
+            <Avatar>
+              <AvatarFallback colorPalette={palette}>
+                <User size={20} />
+              </AvatarFallback>
+            </Avatar>
+          </div>
+        ))}
+      </div>
+    </div>
+  ),
+};
+
 export const AvatarStack: Story = {
   render: () => (
     <div className="flex -space-x-2">
-      {["JD", "AB", "MK", "TL", "+4"].map((initials) => (
+      {(["JD", "AB", "MK", "TL"] as const).map((initials, i) => (
         <Avatar key={initials} className="border-2 border-background">
-          <AvatarFallback className="text-xs">{initials}</AvatarFallback>
+          <AvatarFallback colorPalette={PALETTES[i]} className="text-xs">{initials}</AvatarFallback>
         </Avatar>
       ))}
     </div>
