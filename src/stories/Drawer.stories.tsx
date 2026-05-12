@@ -167,3 +167,72 @@ export const FloatingLg: Story = {
     </Sheet>
   ),
 };
+
+// ── Floating inset (rounded, inset from screen edges) ────────────────────────
+
+export const FloatingSmInset: Story = {
+  name: "Floating inset / sm (340px)",
+  parameters: { chromatic: { disableSnapshot: true } },
+  render: () => (
+    <Sheet>
+      <SheetTrigger asChild><Button variant="outline">Open sm floating drawer</Button></SheetTrigger>
+      <SheetContent side="right" inset="floating" floatingSize="sm">
+        <SheetHeader>
+          <SheetTitle>Quick actions</SheetTitle>
+          <SheetDescription>340px — small floating panel with rounded corners.</SheetDescription>
+        </SheetHeader>
+        <div className="py-4 text-sm text-muted-foreground px-4">Content area.</div>
+        <SheetFooter>
+          <SheetClose asChild><Button variant="outline">Cancel</Button></SheetClose>
+          <Button>Save</Button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  ),
+};
+
+export const FloatingMdInset: Story = {
+  name: "Floating inset / md (480px) — default",
+  parameters: { chromatic: { disableSnapshot: true } },
+  render: () => (
+    <Sheet>
+      <SheetTrigger asChild><Button variant="outline">Open md floating drawer</Button></SheetTrigger>
+      <SheetContent side="right" inset="floating" floatingSize="md">
+        <SheetHeader>
+          <SheetTitle>Add a contact</SheetTitle>
+          <SheetDescription>480px — standard form panel. Rounded, inset from screen edges.</SheetDescription>
+        </SheetHeader>
+        <div className="grid gap-4 py-4 px-4">
+          <div className="space-y-2"><Label htmlFor="fi-name">Name</Label><Input id="fi-name" placeholder="Full name" /></div>
+          <div className="space-y-2"><Label htmlFor="fi-email">Email</Label><Input id="fi-email" placeholder="name@company.com" type="email" /></div>
+          <div className="space-y-2"><Label htmlFor="fi-phone">Phone</Label><Input id="fi-phone" placeholder="Phone number" type="tel" /></div>
+        </div>
+        <SheetFooter>
+          <SheetClose asChild><Button variant="outline">Cancel</Button></SheetClose>
+          <Button>Save</Button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  ),
+};
+
+export const FloatingLgInset: Story = {
+  name: "Floating inset / lg (640px)",
+  parameters: { chromatic: { disableSnapshot: true } },
+  render: () => (
+    <Sheet>
+      <SheetTrigger asChild><Button variant="outline">Open lg floating drawer</Button></SheetTrigger>
+      <SheetContent side="right" inset="floating" floatingSize="lg">
+        <SheetHeader>
+          <SheetTitle>Review details</SheetTitle>
+          <SheetDescription>640px — wide panel for rich content.</SheetDescription>
+        </SheetHeader>
+        <div className="py-4 px-4 text-sm text-muted-foreground">Extended content area.</div>
+        <SheetFooter>
+          <SheetClose asChild><Button variant="outline">Close</Button></SheetClose>
+          <Button>Save</Button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  ),
+};
