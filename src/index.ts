@@ -46,3 +46,4 @@ export { TimePicker, type TimePickerProps, type TimeValue } from "./app/componen
 export { Chip, type ChipProps } from "./app/components/ui/chip";
 export { HyperlinkButton, type HyperlinkButtonProps } from "./app/components/ui/hyperlink-button";
 export * from "./app/components/ui/menu";
+export { SegmentGroup, SegmentGroupItem, type SegmentGroupProps, type SegmentGroupItemProps } from "./app/components/ui/segment-group";
