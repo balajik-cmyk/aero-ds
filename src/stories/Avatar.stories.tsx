@@ -1,90 +1,108 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { User } from "@phosphor-icons/react";
 import { Avatar, AvatarImage, AvatarFallback, type AvatarColorPalette } from "@/app/components/ui/avatar";
+
+const COLORS: AvatarColorPalette[] = [
+  "gray","red","orange","yellow","green","teal","blue","cyan","purple","pink"
+];
 
 const meta: Meta<typeof Avatar> = {
   title: "Components/Images and icons/Avatar/Examples",
   component: Avatar,
   tags: ["autodocs"],
+  parameters: { layout: "centered" },
+  argTypes: {
+    size:  { control: "select", options: ["xs","sm","md","lg","xl","2xl"] },
+    shape: { control: "select", options: ["full","rounded","square"] },
+  },
 };
-
 export default meta;
 type Story = StoryObj<typeof Avatar>;
 
-export const WithImage: Story = {
+export const Default: Story = {
   render: () => (
     <Avatar>
-      <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-      <AvatarFallback>CN</AvatarFallback>
+      <AvatarFallback colorPalette="blue">AB</AvatarFallback>
     </Avatar>
   ),
 };
 
-export const Sizes: Story = {
+export const AllColors: Story = {
   render: () => (
-    <div className="flex items-center gap-4">
-      <Avatar className="size-6">
-        <AvatarFallback className="text-xs">XS</AvatarFallback>
-      </Avatar>
-      <Avatar className="size-8">
-        <AvatarFallback className="text-xs">SM</AvatarFallback>
-      </Avatar>
-      <Avatar>
-        <AvatarFallback>MD</AvatarFallback>
-      </Avatar>
-      <Avatar className="size-12">
-        <AvatarFallback>LG</AvatarFallback>
-      </Avatar>
-      <Avatar className="size-16">
-        <AvatarFallback>XL</AvatarFallback>
-      </Avatar>
-    </div>
-  ),
-};
-
-const PALETTES: AvatarColorPalette[] = [
-  "gray", "red", "green", "blue", "teal",
-  "pink", "purple", "cyan", "orange", "yellow",
-];
-
-export const Colors: Story = {
-  name: "Colors",
-  render: () => (
-    <div className="flex flex-col gap-3">
-      <p className="text-sm text-muted-foreground">
-        Use the <code className="bg-muted px-1 rounded text-xs">colorPalette</code> prop to change the color of the avatar
-      </p>
-      <div className="flex flex-col gap-3">
-        {PALETTES.map((palette) => (
-          <div key={palette} className="flex items-center gap-4">
-            <span className="w-16 text-sm text-muted-foreground">{palette}</span>
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-              <AvatarFallback colorPalette={palette}>SA</AvatarFallback>
-            </Avatar>
-            <Avatar>
-              <AvatarFallback colorPalette={palette} className="text-sm font-medium">SA</AvatarFallback>
-            </Avatar>
-            <Avatar>
-              <AvatarFallback colorPalette={palette}>
-                <User size={20} />
-              </AvatarFallback>
-            </Avatar>
-          </div>
-        ))}
-      </div>
-    </div>
-  ),
-};
-
-export const AvatarStack: Story = {
-  render: () => (
-    <div className="flex -space-x-2">
-      {(["JD", "AB", "MK", "TL"] as const).map((initials, i) => (
-        <Avatar key={initials} className="border-2 border-background">
-          <AvatarFallback colorPalette={PALETTES[i]} className="text-xs">{initials}</AvatarFallback>
+    <div className="flex flex-wrap gap-3">
+      {COLORS.map(c => (
+        <Avatar key={c}>
+          <AvatarFallback colorPalette={c}>AB</AvatarFallback>
         </Avatar>
       ))}
+    </div>
+  ),
+};
+
+export const AllSizes: Story = {
+  render: () => (
+    <div className="flex items-center gap-3">
+      {(["xs","sm","md","lg","xl","2xl"] as const).map(s => (
+        <Avatar key={s} size={s}>
+          <AvatarFallback colorPalette="blue">AB</AvatarFallback>
+        </Avatar>
+      ))}
+    </div>
+  ),
+};
+
+export const WithOnlineDot: Story = {
+  render: () => (
+    <div className="flex gap-3">
+      {(["green","blue","orange","purple"] as AvatarColorPalette[]).map(c => (
+        <div key={c} className="relative inline-flex">
+          <Avatar>
+            <AvatarFallback colorPalette={c}>AB</AvatarFallback>
+          </Avatar>
+          <span className="absolute bottom-0 right-0 size-2.5 rounded-full bg-[var(--graph-green)] ring-2 ring-background" />
+        </div>
+      ))}
+    </div>
+  ),
+};
+
+export const AutoColor: Story = {
+  name: "Auto color from name",
+  render: () => (
+    <div className="flex flex-wrap gap-3">
+      {["Alice B","Carlos D","Emma F","George H","Irene J","Kevin L","Maya N"].map(name => (
+        <Avatar key={name}>
+          <AvatarFallback name={name} />
+        </Avatar>
+      ))}
+    </div>
+  ),
+};
+
+export const WithPhoto: Story = {
+  render: () => (
+    <div className="flex gap-3">
+      <Avatar>
+        <AvatarImage src="https://i.pravatar.cc/100?img=1" alt="User" />
+        <AvatarFallback colorPalette="blue">AB</AvatarFallback>
+      </Avatar>
+      <Avatar>
+        <AvatarImage src="https://i.pravatar.cc/100?img=2" alt="User" />
+        <AvatarFallback colorPalette="green">CD</AvatarFallback>
+      </Avatar>
+      <Avatar>
+        <AvatarImage src="/broken.jpg" alt="User" />
+        <AvatarFallback colorPalette="orange">EF</AvatarFallback>
+      </Avatar>
+    </div>
+  ),
+};
+
+export const Shapes: Story = {
+  render: () => (
+    <div className="flex gap-4">
+      <Avatar shape="full"><AvatarFallback colorPalette="blue">AB</AvatarFallback></Avatar>
+      <Avatar shape="rounded"><AvatarFallback colorPalette="green">AB</AvatarFallback></Avatar>
+      <Avatar shape="square"><AvatarFallback colorPalette="purple">AB</AvatarFallback></Avatar>
     </div>
   ),
 };
