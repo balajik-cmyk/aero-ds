@@ -8,7 +8,7 @@ import { l2KeyFromConversation } from "@/app/myna/mynaL2NavKeys";
 import { MYNA_SEED_CONVERSATIONS } from "@/app/myna/mynaMockConversations";
 
 const meta = {
-  title: "Design System/Myna Chat",
+  title: "Design System/Myna Chat/Examples",
   parameters: {
     layout: "centered",
     docs: {
