@@ -1,23 +1,16 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Avatar/Accessibility" />
+<Meta title="Components/Images and icons/Avatar/Accessibility" />
 
 # Avatar — Accessibility
 
-## Keyboard navigation
-
-| Key | Action |
-|---|---|
-| `Tab` | Move focus to the component |
-| `Enter` / `Space` | Activate (where applicable) |
-| `Escape` | Close overlays / dismiss (where applicable) |
-
 ## Screen reader behaviour
 
-- Uses Radix UI primitives — ARIA roles and states are managed automatically.
-- Ensure visible labels are always paired using `id` + `htmlFor` on form controls.
-- For icon-only variants, add `aria-label`.
+- `<AvatarImage>` must have a descriptive `alt` attribute: `alt="John Doe"`.
+- If the avatar is purely decorative (e.g., next to a visible name), use `alt=""`.
+- `<AvatarFallback>` (initials) is rendered as text — screen readers will announce it.
+- Presence indicators (online dot) should be surfaced via `aria-label` on the parent if the presence state is meaningful: `title="Online"`.
 
-## Focus
+## Colour contrast
 
-Focus ring: 3px `var(--ring)` offset ring, visible on keyboard navigation only.
+Fallback background colours must maintain 4.5:1 contrast with the white initials text.

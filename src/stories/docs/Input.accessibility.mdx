@@ -1,23 +1,16 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Input/Accessibility" />
+<Meta title="Components/Forms and input/Input/Accessibility" />
 
 # Input — Accessibility
 
-## Keyboard navigation
-
-| Key | Action |
-|---|---|
-| `Tab` | Move focus to the component |
-| `Enter` / `Space` | Activate (where applicable) |
-| `Escape` | Close overlays / dismiss (where applicable) |
-
 ## Screen reader behaviour
 
-- Uses Radix UI primitives — ARIA roles and states are managed automatically.
-- Ensure visible labels are always paired using `id` + `htmlFor` on form controls.
-- For icon-only variants, add `aria-label`.
+- Always pair with `<Label htmlFor="...">` — the label is the accessible name.
+- Required: `aria-required="true"` on the `<input>`.
+- Error: `aria-invalid="true"` + `aria-describedby="[error-id]"` pointing to an `<InlineMessage>`.
+- Placeholder text is NOT a substitute for a visible label — screen readers may not announce placeholders.
 
 ## Focus
 
-Focus ring: 3px `var(--ring)` offset ring, visible on keyboard navigation only.
+`focus-visible:ring-[3px] focus-visible:ring-ring/50` border-ring outline.

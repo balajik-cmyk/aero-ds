@@ -1,32 +1,34 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Button/Accessibility" />
+<Meta title="Components/Forms and input/Button/Accessibility" />
 
 # Button — Accessibility
 
-## Keyboard navigation
+## Keyboard interaction
 
 | Key | Action |
 |---|---|
-| `Tab` | Move focus to the button |
-| `Shift + Tab` | Move focus away from the button |
+| `Tab` | Move focus to button |
+| `Shift + Tab` | Move focus away |
 | `Enter` or `Space` | Activate the button |
 
 ## Screen reader behaviour
 
-- Rendered as a native `<button>` element — no extra `role` needed
-- Text content is the accessible name — keep it descriptive
-- Icon-only buttons **must** have `aria-label`: `<Button aria-label="Delete agent">`
-- Loading state: add `aria-busy="true"` and `aria-label="Loading"` when the button triggers an async action
-- Disabled buttons: use the `disabled` prop — screen readers announce "dimmed" or "greyed out"
+- Renders as native `<button>` — no extra `role` needed.
+- Text content is the accessible name — keep it descriptive.
+- **Icon-only buttons** must have `aria-label`: `<Button aria-label="Delete agent">`.
+- **Loading state**: add `aria-busy="true"` and update the label: `<Button aria-busy="true" aria-label="Saving…">`.
+- **Disabled**: `disabled` prop — announces as "dimmed" / "unavailable". Do not use `aria-disabled` as a substitute; it keeps the button focusable.
 
 ## Colour contrast
 
-All button variants meet WCAG 2.1 AA (4.5:1 minimum):
-- `default` — white text on `var(--primary)` (#1E44CC) ✅
-- `destructive` — white text on `var(--destructive)` (#d4183d) ✅
-- `outline` / `ghost` — foreground text on background ✅
+| Variant | Foreground | Background | Ratio |
+|---|---|---|---|
+| `default` | `#ffffff` | `#1E44CC` | ≥ 4.5:1 ✅ |
+| `destructive` | `#ffffff` | `#d4183d` | ≥ 4.5:1 ✅ |
+| `outline` / `ghost` | `var(--foreground)` | `var(--background)` | ✅ |
+| `secondary` | `var(--secondary-foreground)` | `var(--secondary)` | ✅ |
 
 ## Focus
 
-Focus ring is rendered using `focus-visible:ring-[3px] focus-visible:ring-ring/50` — visible only on keyboard navigation, not on mouse click.
+`focus-visible:ring-[3px] focus-visible:ring-ring/50` — visible only on keyboard navigation, suppressed on mouse click via `:focus-visible`.

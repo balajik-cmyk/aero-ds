@@ -1,32 +1,46 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Input/Usage" />
+<Meta title="Components/Forms and input/Input/Usage" />
 
-# Input — Usage
+# Input
 
-An input field lets users enter and edit text.
+An input lets users enter and edit a single line of text.
 
 ---
 
-## When to use
+## Usage
 
-- Describe the primary intended use case here.
-- Add context-specific guidance for this component.
+### When to use
 
-## When not to use
+- **Short text entry**: name, email, search term, URL.
+- When the expected value fits on **one line**.
 
-- Add guidance on when another component is a better fit.
-- Related: **TextField/TextArea**
+### When not to use
+
+- **Multi-line text** — use `Textarea`.
+- **Choosing from options** — use `Select`, `RadioGroup`, or `Chip`.
+- **Date/time** — use `DatePicker` or `TimePicker`.
 
 ---
 
 ## Content guidelines
 
-- Use sentence case for all labels and descriptions.
-- Keep text concise — 1–4 words for labels, 1–2 sentences for descriptions.
+- Use a visible `<Label>` paired via `htmlFor` — never rely on placeholder alone.
+- Placeholder: example value in the correct format — "e.g. john@example.com".
+- Required fields: add `aria-required="true"` and mark with `*` in the label.
+- Error messages: use `InlineMessage` below the field with `aria-describedby`.
 
 ---
 
-## Related components
+## Behaviour
 
-- [TextField/TextArea](/docs/ui-textfield/textarea-examples--docs)
+- On focus: `ring-[3px] ring-ring/50` outline.
+- On error: `aria-invalid="true"` changes border to `var(--destructive)`.
+
+---
+
+## Related
+
+- [Textarea](/docs/components-forms-and-input-textarea-examples--docs) — multi-line text
+- [Search](/docs/components-forms-and-input-search-examples--docs) — search with icon + shortcut
+- [InlineMessage](/docs/components-messaging-inlinemessage-examples--docs) — field-level validation

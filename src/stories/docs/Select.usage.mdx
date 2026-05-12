@@ -1,32 +1,48 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Select/Usage" />
+<Meta title="Components/Forms and input/Select/Usage" />
 
-# Select — Usage
+# Select
 
-A select lets users choose one or more options from a dropdown list.
+A select lets users choose one or more options from a collapsible dropdown list.
 
 ---
 
-## When to use
+## Usage
 
-- Describe the primary intended use case here.
-- Add context-specific guidance for this component.
+### When to use
 
-## When not to use
+- When there are **more than 5–6 options** (fewer options → use `RadioGroup` or `Chip`).
+- When a single compact trigger should reveal many choices.
+- When options may be searched or loaded asynchronously.
 
-- Add guidance on when another component is a better fit.
-- Related: **Combobox/CheckboxGroup**
+### When not to use
+
+- **2–4 options always visible** — use `RadioGroup` or `Chip` instead.
+- **Navigation** — use `Menu` or `Tabs` for navigation actions.
+
+### Variants
+
+| Pattern | When |
+|---|---|
+| Single select | User picks one value |
+| Multi-select | User picks several values; shows checkboxes |
+| With search | More than ~10 options; filter by typing |
+| Async | Options loaded from API; shows loading spinner |
+| Grouped options | Logical groupings with `SelectGroup` + `SelectLabel` |
 
 ---
 
 ## Content guidelines
 
-- Use sentence case for all labels and descriptions.
-- Keep text concise — 1–4 words for labels, 1–2 sentences for descriptions.
+- Placeholder text: "Select [noun]" — e.g., "Select platform", "Select agent".
+- Option labels: sentence case, concise.
+- Group labels: sentence case, describe the category.
 
 ---
 
-## Related components
+## Related
 
-- [Combobox/CheckboxGroup](/docs/ui-combobox/checkboxgroup-examples--docs)
+- [RadioGroup](/docs/components-forms-and-input-radiogroup-examples--docs) — single choice, all visible
+- [Chip](/docs/components-forms-and-input-chip-examples--docs) — selection filters in toolbars
+- [Menu](/docs/components-navigation-menu-examples--docs) — action menus (not form inputs)

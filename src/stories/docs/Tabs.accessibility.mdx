@@ -1,23 +1,26 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Tabs/Accessibility" />
+<Meta title="Components/Navigation/Tabs/Accessibility" />
 
 # Tabs — Accessibility
 
-## Keyboard navigation
+## Keyboard interaction
 
 | Key | Action |
 |---|---|
-| `Tab` | Move focus to the component |
-| `Enter` / `Space` | Activate (where applicable) |
-| `Escape` | Close overlays / dismiss (where applicable) |
+| `Tab` | Move focus to the active tab |
+| `←` / `→` | Move focus to the previous/next tab and activate it |
+| `Home` | Move to first tab |
+| `End` | Move to last tab |
+| `Tab` (from tab) | Move focus into the active panel |
 
 ## Screen reader behaviour
 
-- Uses Radix UI primitives — ARIA roles and states are managed automatically.
-- Ensure visible labels are always paired using `id` + `htmlFor` on form controls.
-- For icon-only variants, add `aria-label`.
+Built on `@radix-ui/react-tabs`:
+- Tab list: `role="tablist"`.
+- Each tab: `role="tab"` + `aria-selected="true/false"` + `aria-controls="[panel-id]"`.
+- Panel: `role="tabpanel"` + `aria-labelledby="[tab-id]"`.
 
 ## Focus
 
-Focus ring: 3px `var(--ring)` offset ring, visible on keyboard navigation only.
+The active tab receives focus — not all tabs. Arrow keys move between tabs without `Tab` key.

@@ -1,32 +1,51 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Tabs/Usage" />
+<Meta title="Components/Navigation/Tabs/Usage" />
 
-# Tabs — Usage
+# Tabs
 
-Tabs organise content into multiple panels, showing one at a time.
+Tabs organise related content into multiple panels, showing one at a time. The active tab's panel is visible; others are hidden.
 
 ---
 
-## When to use
+## Usage
 
-- Describe the primary intended use case here.
-- Add context-specific guidance for this component.
+### When to use
 
-## When not to use
+- **Related content** that users need to switch between without leaving the page.
+- **Categorised views** — e.g., "Overview / Responses / Analytics" in a Reviews page.
 
-- Add guidance on when another component is a better fit.
-- Related: **Accordion**
+### When not to use
+
+- **Sequential steps** — use `Stepper` instead.
+- **Page navigation** — use the app sidebar or breadcrumb.
+- **Filtering** — use `Chip` or `Select`.
+
+### Limits
+
+- **2–7 tabs** per row. More tabs become hard to scan.
+- All tab labels should be **comparable in length** — avoid mixing "Overview" with "Detailed performance breakdown".
+- Do not nest tabs within tabs.
 
 ---
 
 ## Content guidelines
 
-- Use sentence case for all labels and descriptions.
-- Keep text concise — 1–4 words for labels, 1–2 sentences for descriptions.
+- Tab labels: **1–3 words**, noun or noun phrase — "Examples", "Usage", "Accessibility".
+- Sentence case, no punctuation.
+- Labels should clearly describe the panel content.
 
 ---
 
-## Related components
+## Behaviour
 
-- [Accordion](/docs/ui-accordion-examples--docs)
+- Active tab: bold label + 2px `var(--primary)` bottom underline.
+- Hover: grey pill background on the tab label.
+- Tab panels are lazy-rendered (Radix default) — content mounts on first activation.
+
+---
+
+## Related
+
+- [Accordion](/docs/components-text-and-data-display-accordion-examples--docs) — collapsible sections in a single column
+- [Stepper](/docs/components-complex-stepper-examples--docs) — ordered sequential steps

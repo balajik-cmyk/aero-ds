@@ -1,32 +1,49 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Banner/Usage" />
+<Meta title="Components/Messaging/Banner/Usage" />
 
-# Banner — Usage
+# Banner
 
-A banner displays a persistent message at the top of a page or section.
+A banner displays a persistent message at the top of a page or section. Unlike a Toast, it stays until dismissed or resolved.
 
 ---
 
-## When to use
+## Usage
 
-- Describe the primary intended use case here.
-- Add context-specific guidance for this component.
+### When to use
 
-## When not to use
+- **System-level information** affecting the whole page: "Your trial ends in 3 days."
+- **Warnings requiring attention**: "3 reviews need a response."
+- **Success confirmation** that should persist until acknowledged.
 
-- Add guidance on when another component is a better fit.
-- Related: **Toast/InlineMessage**
+### When not to use
+
+- **Brief feedback** after a completed action — use `Toast`.
+- **Form field errors** — use `InlineMessage` below the field.
+- **Blocking action required** — use `Dialog`.
+
+### Variants
+
+| Variant | Border / icon color | Use for |
+|---|---|---|
+| `info` | `var(--primary)` blue | Informational — new features, tips |
+| `success` | `var(--graph-green)` | Positive confirmation |
+| `warning` | `var(--graph-sunflower)` | Non-blocking caution |
+| `error` | `var(--destructive)` | Action required to fix an error |
 
 ---
 
 ## Content guidelines
 
-- Use sentence case for all labels and descriptions.
-- Keep text concise — 1–4 words for labels, 1–2 sentences for descriptions.
+- **Title (optional)**: noun phrase — "Action required", "Setup complete".
+- **Body**: 1–2 sentences. Be specific about what happened and what to do.
+- **Action button (optional)**: verb phrase — "View settings", "Upgrade plan".
+- Dismissible banners should use `onDismiss`. Non-dismissible banners should resolve automatically.
 
 ---
 
-## Related components
+## Related
 
-- [Toast/InlineMessage](/docs/ui-toast/inlinemessage-examples--docs)
+- [Toast](/docs/components-messaging-toast-examples--docs) — transient notification
+- [InlineMessage](/docs/components-messaging-inlinemessage-examples--docs) — form field message
+- [Alert](/docs/components-messaging-alert-examples--docs) — block contextual message

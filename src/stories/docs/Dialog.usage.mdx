@@ -1,32 +1,60 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Dialog/Usage" />
+<Meta title="Components/Messaging/Dialog/Usage" />
 
-# Dialog — Usage
+# Dialog
 
-A dialog displays content in a modal overlay requiring user attention.
+A dialog displays content in a modal overlay, requiring the user to interact before returning to the page.
 
 ---
 
-## When to use
+## Parts
 
-- Describe the primary intended use case here.
-- Add context-specific guidance for this component.
+1. **Overlay** — semi-transparent backdrop behind the dialog.
+2. **Container** — the dialog surface, centered by default.
+3. **Header** — title (required) and optional description.
+4. **Body** — main content area.
+5. **Footer** — action buttons (primary + secondary/cancel).
+6. **Close button** — always present (`DialogClose`).
 
-## When not to use
+---
 
-- Add guidance on when another component is a better fit.
-- Related: **Drawer/Popover**
+## Usage
+
+### When to use
+
+- **Confirmation** — "Are you sure you want to delete this agent?"
+- **Short forms** — login, quick create, settings that don't warrant a full page.
+- **Interruptions** — errors or critical info that must be acknowledged.
+
+### When not to use
+
+- **Complex workflows** with many steps — use a full page or `Stepper`.
+- **Contextual details** about a selected item — use `Drawer` instead.
+- **Informational hints** on hover — use `Tooltip` or `Popover`.
+
+### Sizes
+
+| Class | Max-width | Use for |
+|---|---|---|
+| `max-w-sm` | 24rem | Simple confirmations |
+| `max-w-lg` | 32rem (default) | Standard forms |
+| `max-w-2xl` | 42rem | Forms with more fields |
+| `max-w-4xl` | 56rem | Rich content, preview |
 
 ---
 
 ## Content guidelines
 
-- Use sentence case for all labels and descriptions.
-- Keep text concise — 1–4 words for labels, 1–2 sentences for descriptions.
+- **Title**: concise noun phrase or question — "Delete agent?", "Create review request".
+- **Description**: 1–2 sentences explaining what will happen.
+- **Primary action**: matches the title — "Delete", "Create", "Confirm".
+- **Cancel**: always labelled "Cancel", never "No" or "Close".
+- Destructive dialogs: primary button uses `variant="destructive"`.
 
 ---
 
-## Related components
+## Related
 
-- [Drawer/Popover](/docs/ui-drawer/popover-examples--docs)
+- [Drawer](/docs/components-overlays-and-layering-drawer-examples--docs) — side panel for contextual detail
+- [Popover](/docs/components-overlays-and-layering-popover-examples--docs) — lightweight overlay on click

@@ -1,23 +1,22 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Switch/Accessibility" />
+<Meta title="Components/Forms and input/Switch/Accessibility" />
 
 # Switch — Accessibility
 
-## Keyboard navigation
+## Keyboard interaction
 
 | Key | Action |
 |---|---|
-| `Tab` | Move focus to the component |
-| `Enter` / `Space` | Activate (where applicable) |
-| `Escape` | Close overlays / dismiss (where applicable) |
+| `Tab` | Move focus to switch |
+| `Space` | Toggle on/off |
 
 ## Screen reader behaviour
 
-- Uses Radix UI primitives — ARIA roles and states are managed automatically.
-- Ensure visible labels are always paired using `id` + `htmlFor` on form controls.
-- For icon-only variants, add `aria-label`.
+Built on `@radix-ui/react-switch` — uses `role="switch"` with `aria-checked="true/false"`. The label is announced with the state: "Email notifications, switch, on".
+
+Always pair with a visible `<Label htmlFor="...">`.
 
 ## Focus
 
-Focus ring: 3px `var(--ring)` offset ring, visible on keyboard navigation only.
+Focus ring: 3px `var(--ring)` around the 36×20px track. Visible only on keyboard navigation.

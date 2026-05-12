@@ -1,32 +1,39 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Avatar/Usage" />
+<Meta title="Components/Images and icons/Avatar/Usage" />
 
-# Avatar — Usage
+# Avatar
 
-An avatar represents a user or entity visually.
-
----
-
-## When to use
-
-- Describe the primary intended use case here.
-- Add context-specific guidance for this component.
-
-## When not to use
-
-- Add guidance on when another component is a better fit.
-- Related: **AvatarGroup**
+An avatar represents a user or entity. It can display a photo, initials, or a fallback icon.
 
 ---
 
-## Content guidelines
+## Parts
 
-- Use sentence case for all labels and descriptions.
-- Keep text concise — 1–4 words for labels, 1–2 sentences for descriptions.
+1. **Image** — the user's profile photo (optional, renders via `<AvatarImage>`).
+2. **Fallback** — initials or icon shown when no image is available.
+3. **Presence indicator** — optional green dot (online status).
 
 ---
 
-## Related components
+## Usage
 
-- [AvatarGroup](/docs/ui-avatargroup-examples--docs)
+### When to use
+
+- To identify a **specific user** in comments, assignments, or activity feeds.
+- In **navigation bars** for the current user's profile.
+- In **lists and tables** to associate rows with people.
+
+### Sizes
+
+Use `size-6` (sm), `size-8` (md), `size-10` (lg) via Tailwind classes on the Avatar root. Default is `size-10` (40×40 px).
+
+### Fallback text
+
+Provide `<AvatarFallback>` with 1–2 initials: "JD" for John Doe. This renders when the image fails to load or is not provided.
+
+---
+
+## Related
+
+- [AvatarGroup](/docs/components-images-and-icons-avatargroup-examples--docs) — stacked avatars with overflow

@@ -1,23 +1,24 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/RadioGroup/Accessibility" />
+<Meta title="Components/Forms and input/RadioGroup/Accessibility" />
 
-# RadioGroup — Accessibility
+# Radio group — Accessibility
 
-## Keyboard navigation
+## Keyboard interaction
 
 | Key | Action |
 |---|---|
-| `Tab` | Move focus to the component |
-| `Enter` / `Space` | Activate (where applicable) |
-| `Escape` | Close overlays / dismiss (where applicable) |
+| `Tab` | Move focus to the selected radio (or first if none selected) |
+| `↑` / `←` | Move to previous radio and select it |
+| `↓` / `→` | Move to next radio and select it |
+| `Space` | Select focused radio |
 
 ## Screen reader behaviour
 
-- Uses Radix UI primitives — ARIA roles and states are managed automatically.
-- Ensure visible labels are always paired using `id` + `htmlFor` on form controls.
-- For icon-only variants, add `aria-label`.
+- Built on `@radix-ui/react-radio-group` — uses `role="radiogroup"` on the container and `role="radio"` on each item.
+- `aria-checked` is set automatically.
+- Group must have a visible label via `<Label>` or `aria-label` on the root.
 
 ## Focus
 
-Focus ring: 3px `var(--ring)` offset ring, visible on keyboard navigation only.
+24 px touch target contains a 16 px visual ring. Focus ring: `group-focus-visible:ring-[3px] ring-ring/50` on the inner visual circle.

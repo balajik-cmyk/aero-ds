@@ -1,53 +1,59 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Checkbox/Usage" />
+<Meta title="Components/Forms and input/Checkbox/Usage" />
 
-# Checkbox — Usage
+# Checkbox
 
 A checkbox lets users select one or more options from a list, or toggle a single boolean setting.
 
 ---
 
-## When to use
+## Parts
 
-- When the user can select **multiple options** from a list (use `CheckboxGroup`)
-- When toggling a **single setting** on or off (e.g. "Remember me", "Enable notifications")
-- When showing a **partial selection** — use `checked="indeterminate"` for select-all patterns
-
-## When not to use
-
-- **Single mutually exclusive choice** — use `RadioGroup` instead
-- **Binary yes/no toggle** in a form — use `Switch` for a more prominent on/off control
-- **Filtering** a list — use `Chip` for selection filters
+1. **Checkbox control** — the 16×16 px box showing unchecked / checked / indeterminate state.
+2. **Label** — text describing what the checkbox does. Always required for accessibility.
+3. **Description (optional)** — secondary text below the label for extra context.
 
 ---
 
-## States
+## Usage
 
-| State | `checked` prop | Visual |
-|---|---|---|
-| Unchecked | `false` (default) | Empty square, grey border |
-| Checked | `true` | Blue fill, white checkmark |
-| Indeterminate | `"indeterminate"` | Blue fill, white dash — used for partial select-all |
-| Disabled | `disabled` | Grey, reduced opacity |
+### When to use
 
----
+- When users can select **multiple options** from a list (use `CheckboxGroup` for managed lists).
+- When toggling a **single boolean setting** — "Remember me", "Enable notifications".
+- When showing **partial selection** — use `checked="indeterminate"` for select-all patterns.
 
-## With labels
+### When not to use
 
-Always pair a checkbox with a `<Label>` using matching `id` / `htmlFor`:
+- **Single mutually exclusive choice** — use `RadioGroup` instead.
+- **Immediate binary toggle** — use `Switch` for a more prominent on/off control.
+- **Filter selection** — use `Chip` for visual filter chips in toolbars.
 
-```tsx
-<Checkbox id="notify" />
-<Label htmlFor="notify">Send email notifications</Label>
-```
+### Indeterminate state
 
-For descriptions below the label, wrap in a flex column — see `WithLabelAndDescription` story.
+Use `checked="indeterminate"` on a parent checkbox when some (but not all) children are selected. This is the standard select-all pattern — see `CheckboxGroup` with `selectAll`.
 
 ---
 
-## Related components
+## Content guidelines
 
-- [CheckboxGroup](/docs/ui-checkboxgroup-examples--docs) — managed list with select-all
-- [RadioGroup](/docs/ui-radiogroup-examples--docs) — single selection from a list
-- [Switch](/docs/ui-switch-examples--docs) — prominent binary toggle
+- Keep labels **short and descriptive** — "Send email updates", not "Email".
+- **No punctuation** at the end of labels.
+- For grouped checkboxes, use a consistent grammatical form across all options.
+
+---
+
+## Behaviour
+
+- Individual states: unchecked → checked (toggled via `Space`).
+- Grouped with `CheckboxGroup`: unchecked → indeterminate → checked on the master.
+- Disabled checkboxes cannot be toggled. Use validation to explain why.
+
+---
+
+## Related
+
+- [CheckboxGroup](/docs/components-forms-and-input-checkboxgroup-examples--docs) — managed list with select-all
+- [RadioGroup](/docs/components-forms-and-input-radiogroup-examples--docs) — single selection
+- [Switch](/docs/components-forms-and-input-switch-examples--docs) — prominent binary toggle

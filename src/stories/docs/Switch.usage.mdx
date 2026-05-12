@@ -1,32 +1,49 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Switch/Usage" />
+<Meta title="Components/Forms and input/Switch/Usage" />
 
-# Switch — Usage
+# Switch
 
-A switch toggles a single boolean setting immediately.
+A switch toggles a single boolean setting on or off immediately — no Save button needed.
 
 ---
 
-## When to use
+## Usage
 
-- Describe the primary intended use case here.
-- Add context-specific guidance for this component.
+### When to use
 
-## When not to use
+- Toggling a **system setting** that takes effect immediately (notifications, dark mode, feature flags).
+- When the action is **reversible** and the result is instantly visible.
 
-- Add guidance on when another component is a better fit.
-- Related: **Checkbox/Toggle**
+### When not to use
+
+- **Form fields** that require submission — use `Checkbox` instead.
+- **Multiple options** — use `CheckboxGroup`.
+- **Binary choice that needs confirmation** — use `Dialog` + `Checkbox`.
+
+### Label placement
+
+The label should appear to the right of the switch (default). Always use a `<Label htmlFor="...">` — the label IS the accessible name.
 
 ---
 
 ## Content guidelines
 
-- Use sentence case for all labels and descriptions.
-- Keep text concise — 1–4 words for labels, 1–2 sentences for descriptions.
+- Labels describe the **setting being controlled**, not the state.
+- ✅ "Email notifications" — ❌ "Turn on emails"
+- Use noun phrases, not verbs.
 
 ---
 
-## Related components
+## Behaviour
 
-- [Checkbox/Toggle](/docs/ui-checkbox/toggle-examples--docs)
+- Toggle fires immediately. If an async action is needed, disable the switch while processing and restore it on completion.
+- The switch track changes: grey (off) → `var(--primary)` blue (on).
+- Thumb transitions smoothly between positions.
+
+---
+
+## Related
+
+- [Checkbox](/docs/components-forms-and-input-checkbox-examples--docs) — form fields requiring submission
+- [Toggle](/docs/components-forms-and-input-toggle-examples--docs) — press-state button

@@ -1,23 +1,17 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Badge/Accessibility" />
+<Meta title="Components/Status indicators/Badge/Accessibility" />
 
 # Badge — Accessibility
 
-## Keyboard navigation
-
-| Key | Action |
-|---|---|
-| `Tab` | Move focus to the component |
-| `Enter` / `Space` | Activate (where applicable) |
-| `Escape` | Close overlays / dismiss (where applicable) |
-
 ## Screen reader behaviour
 
-- Uses Radix UI primitives — ARIA roles and states are managed automatically.
-- Ensure visible labels are always paired using `id` + `htmlFor` on form controls.
-- For icon-only variants, add `aria-label`.
+Badges are rendered as `<span>` elements — purely visual/informational. They are announced inline as part of their parent's text context.
 
-## Focus
+For **count badges** that appear next to a labelled element (e.g., a nav item), use `aria-label` on the parent to include the count: `aria-label="Inbox — 4 unread"`.
 
-Focus ring: 3px `var(--ring)` offset ring, visible on keyboard navigation only.
+For **status badges**, ensure the status is also conveyed in text, not colour alone.
+
+## Colour contrast
+
+All badge variants meet WCAG 2.1 AA minimum contrast (4.5:1).

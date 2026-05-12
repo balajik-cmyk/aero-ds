@@ -1,32 +1,59 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Toast/Usage" />
+<Meta title="Components/Messaging/Toast/Usage" />
 
-# Toast — Usage
+# Toast
 
-Toast notifications provide brief feedback about an operation.
+Toast notifications provide brief, non-interrupting feedback about a completed action. They appear temporarily and dismiss automatically.
 
 ---
 
-## When to use
+## Usage
 
-- Describe the primary intended use case here.
-- Add context-specific guidance for this component.
+### When to use
 
-## When not to use
+- **Confirming** a completed action: "Review response sent", "Agent saved".
+- **Alerting** to a background event the user should know about.
 
-- Add guidance on when another component is a better fit.
-- Related: **Banner/InlineMessage**
+### When not to use
+
+- **Errors requiring action** — use `Banner` or `InlineMessage` which persist.
+- **Confirmation before destructive action** — use `Dialog`.
+- **Important info users must read** — toasts are transient; use `Alert` or `Banner`.
+
+### Variants
+
+| Variant | Use for |
+|---|---|
+| Default | Neutral info |
+| Success (`toast.success`) | Completed action |
+| Error (`toast.error`) | Failed action |
+| Warning (`toast.warning`) | Caution, non-blocking |
 
 ---
 
 ## Content guidelines
 
-- Use sentence case for all labels and descriptions.
-- Keep text concise — 1–4 words for labels, 1–2 sentences for descriptions.
+Use the real-world templates from Figma:
+
+- "**[Entity name]** has been **[past tense verb]**."
+- "New **[entity]** **[Entity name]** has been added."
+- "Changes to **[Entity name]** have been saved."
+
+Keep messages **under 10 words**. Do not duplicate the action verb in message and icon.
 
 ---
 
-## Related components
+## Behaviour
 
-- [Banner/InlineMessage](/docs/ui-banner/inlinemessage-examples--docs)
+- Auto-dismiss after ~4 seconds (Sonner default).
+- Supports an optional `action` with a label and callback.
+- Mount `<Toaster />` once at the app root.
+
+---
+
+## Related
+
+- [Banner](/docs/components-messaging-banner-examples--docs) — persistent message at top of page
+- [InlineMessage](/docs/components-messaging-inlinemessage-examples--docs) — inline form validation
+- [Alert](/docs/components-messaging-alert-examples--docs) — contextual block message

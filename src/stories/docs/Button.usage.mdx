@@ -1,62 +1,75 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Button/Usage" />
+<Meta title="Components/Forms and input/Button/Usage" />
 
-# Button — Usage
+# Button
 
-A button triggers an event or action and lets users know what will happen next.
-
----
-
-## When to use
-
-- To trigger a primary action on a page (e.g. **Save**, **Submit**, **Create**)
-- To offer a secondary action that complements the primary (e.g. **Cancel**, **Preview**)
-- To navigate to a related resource when a hyperlink is not appropriate
-
-## When not to use
-
-- **Don't use a button as a navigation link.** Use `HyperlinkButton` or an `<a>` tag for navigating between pages.
-- **Don't stack more than one primary button** in the same context. Reserve `variant="default"` for the single most important action.
-- **Don't use a button for destructive actions without confirmation.** Use `variant="destructive"` and pair with a `Dialog` confirmation.
+A button triggers an event or action. They let users know what will happen next.
 
 ---
 
-## Variants
+## Parts
 
-| Variant | Token | Use for |
+A button consists of a **label** (required) and an optional **icon** before or after the label.
+
+1. **Label** — text describing the action. Use verb-first phrases: "Save changes", "Delete agent".
+2. **Button surface** — the interactive area with hover, active, and focus states.
+3. **Icon (optional)** — only when it adds clear affordance. Do not use icons decoratively.
+
+---
+
+## Usage
+
+### Use one primary action per context
+
+Reserve `variant="default"` (blue) for the single most important action in any area. Multiple primary buttons compete for attention and confuse hierarchy.
+
+✅ **Do** — one blue primary button alongside an outline secondary.
+
+❌ **Don't** — two or more blue buttons in the same group.
+
+### Match variant to importance
+
+| Variant | Use for |
+|---|---|
+| `default` | Primary CTA — submit, save, create |
+| `secondary` | Secondary action alongside primary |
+| `outline` | Tertiary or cancel actions |
+| `ghost` | Inline toolbar, table row actions |
+| `destructive` | Irreversible delete — always confirm first |
+| `link` | Navigation-style inline text actions |
+
+### Size guidance
+
+| Size | Height | Use when |
 |---|---|---|
-| `default` | `var(--primary)` | Primary CTA — one per context |
-| `secondary` | `var(--secondary)` | Secondary action alongside a primary |
-| `outline` | border only | Tertiary or cancel actions |
-| `ghost` | no border/bg | Inline or toolbar actions |
-| `destructive` | `var(--destructive)` | Irreversible delete/remove actions |
-| `link` | underline text | Navigation-style inline actions |
-
----
-
-## Sizes
-
-| Size | Height | Use for |
-|---|---|---|
-| `lg` | 44px | Hero CTAs, prominent actions |
+| `lg` | 44px | Hero sections, prominent standalone CTAs |
 | `default` | 34px | Standard — use in most cases |
 | `sm` | 32px | Compact toolbars, table row actions |
-| `icon` | 34×34px | Icon-only buttons — must have `aria-label` |
+| `icon` | 34×34 | Icon-only — must have `aria-label` |
 
 ---
 
 ## Content guidelines
 
-- Use **sentence case**: "Send response", not "Send Response"
-- Use **verb-first** labels: "Save changes", "Delete agent", "Add contact"
-- Keep labels **2–4 words** — avoid vague labels like "Click here" or "Submit"
-- For icon buttons, always provide an `aria-label`
+- **Sentence case**: "Send response" not "Send Response"
+- **Verb-first labels**: "Save changes", "Delete agent", "Add contact"
+- **2–4 words** max — avoid "Click here", "Submit", "OK"
+- **Be specific**: "Save and continue" is better than "Next"
+- Icon buttons must have `aria-label` describing the action
 
 ---
 
-## Related components
+## Behavior
 
-- [SplitButton](/docs/ui-splitbutton-examples--docs) — primary action + dropdown options
-- [HyperlinkButton](/docs/ui-hyperlinkbutton-examples--docs) — link-style text actions
-- [Menu](/docs/ui-menu-examples--docs) — standalone dropdown menu
+- The `disabled` prop disables all interaction and reduces opacity to 50%.
+- For async actions, add `aria-busy="true"` and a loading Spinner inside the button.
+- `asChild` allows rendering as an `<a>` tag while keeping button styles.
+
+---
+
+## Related
+
+- [SplitButton](/docs/components-forms-and-input-splitbutton-examples--docs) — primary action + secondary dropdown
+- [HyperlinkButton](/docs/components-forms-and-input-hyperlinkbutton-examples--docs) — link-styled text action
+- [Menu](/docs/components-navigation-menu-examples--docs) — standalone dropdown menu

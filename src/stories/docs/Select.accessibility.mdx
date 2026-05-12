@@ -1,23 +1,23 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Select/Accessibility" />
+<Meta title="Components/Forms and input/Select/Accessibility" />
 
 # Select — Accessibility
 
-## Keyboard navigation
+## Keyboard interaction
 
 | Key | Action |
 |---|---|
-| `Tab` | Move focus to the component |
-| `Enter` / `Space` | Activate (where applicable) |
-| `Escape` | Close overlays / dismiss (where applicable) |
+| `Tab` | Focus the trigger |
+| `Space` / `Enter` / `↓` | Open the dropdown |
+| `↑` / `↓` | Navigate options |
+| `Enter` | Select focused option |
+| `Escape` | Close without selecting |
+| `Home` / `End` | Jump to first/last option |
+| Type a character | Jump to matching option |
 
 ## Screen reader behaviour
 
-- Uses Radix UI primitives — ARIA roles and states are managed automatically.
-- Ensure visible labels are always paired using `id` + `htmlFor` on form controls.
-- For icon-only variants, add `aria-label`.
+Built on `@radix-ui/react-select` — uses `role="combobox"` on the trigger and `role="listbox"` on the content. Selected value is announced on change.
 
-## Focus
-
-Focus ring: 3px `var(--ring)` offset ring, visible on keyboard navigation only.
+Pair with a `<Label htmlFor="...">` for a visible accessible name.

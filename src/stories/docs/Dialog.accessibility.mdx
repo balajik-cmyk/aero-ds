@@ -1,23 +1,28 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Dialog/Accessibility" />
+<Meta title="Components/Messaging/Dialog/Accessibility" />
 
 # Dialog — Accessibility
 
-## Keyboard navigation
+## Keyboard interaction
 
 | Key | Action |
 |---|---|
-| `Tab` | Move focus to the component |
-| `Enter` / `Space` | Activate (where applicable) |
-| `Escape` | Close overlays / dismiss (where applicable) |
+| `Tab` | Move focus through interactive elements within the dialog |
+| `Shift + Tab` | Move focus backwards |
+| `Escape` | Close the dialog |
+| `Enter` / `Space` | Activate focused button |
 
 ## Screen reader behaviour
 
-- Uses Radix UI primitives — ARIA roles and states are managed automatically.
-- Ensure visible labels are always paired using `id` + `htmlFor` on form controls.
-- For icon-only variants, add `aria-label`.
+Built on `@radix-ui/react-dialog`:
+- Container: `role="dialog"` + `aria-modal="true"`.
+- `aria-labelledby` points to `<DialogTitle>`.
+- `aria-describedby` points to `<DialogDescription>` when present.
+- Focus is trapped inside the dialog while open; restored to the trigger on close.
+- Opening is announced: "Delete agent, dialog".
 
-## Focus
+## Focus management
 
-Focus ring: 3px `var(--ring)` offset ring, visible on keyboard navigation only.
+On open: focus moves to the first focusable element (or the dialog itself if none).
+On close: focus returns to the trigger that opened it.

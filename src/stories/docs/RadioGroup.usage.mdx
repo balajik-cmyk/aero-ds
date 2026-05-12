@@ -1,32 +1,59 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/RadioGroup/Usage" />
+<Meta title="Components/Forms and input/RadioGroup/Usage" />
 
-# RadioGroup — Usage
+# Radio group
 
-Radio buttons let users select exactly one option from a set.
+Radio buttons let users select exactly one option from a set. When one is selected, all others are deselected.
 
 ---
 
-## When to use
+## Parts
 
-- Describe the primary intended use case here.
-- Add context-specific guidance for this component.
+1. **Radio control** — 24 px touch target; 16 px visual ring + 8 px inner dot when selected.
+2. **Label** — describes the option. Always required.
+3. **Description (optional)** — secondary text below the label.
 
-## When not to use
+---
 
-- Add guidance on when another component is a better fit.
-- Related: **Checkbox/Switch**
+## Usage
+
+### When to use
+
+- When users must choose **exactly one option** from a small set (2–6 options).
+- When all options need to be visible at once (unlike Select).
+
+### When not to use
+
+- **Multiple selections possible** — use `Checkbox` or `CheckboxGroup`.
+- **More than 6 options** — use `Select` to avoid visual clutter.
+- **Immediate toggle** — use `Switch` for a single on/off control.
+
+### Orientation
+
+Use vertical layout (default) for most cases. Use horizontal only for 2–3 short labels in a compact space.
 
 ---
 
 ## Content guidelines
 
-- Use sentence case for all labels and descriptions.
-- Keep text concise — 1–4 words for labels, 1–2 sentences for descriptions.
+- Keep labels concise — 1–4 words.
+- All options in a group must follow the same grammatical pattern.
+- No punctuation at end of labels.
+- Group label (above the group) should describe what the user is choosing.
 
 ---
 
-## Related components
+## Behaviour
 
-- [Checkbox/Switch](/docs/ui-checkbox/switch-examples--docs)
+- Only one radio can be selected at a time.
+- Arrow keys navigate between radios within a group.
+- Clicking a selected radio does nothing (cannot deselect — use Checkbox for that).
+
+---
+
+## Related
+
+- [Checkbox](/docs/components-forms-and-input-checkbox-examples--docs) — multiple selection
+- [Select](/docs/components-forms-and-input-select-examples--docs) — single choice with many options
+- [Switch](/docs/components-forms-and-input-switch-examples--docs) — single binary setting

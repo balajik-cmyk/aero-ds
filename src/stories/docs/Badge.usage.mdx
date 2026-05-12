@@ -1,32 +1,48 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="UI/Badge/Usage" />
+<Meta title="Components/Status indicators/Badge/Usage" />
 
-# Badge — Usage
+# Badge
 
-A badge displays a short status label or count.
+A badge is a small label that conveys status, a count, or a category. It is non-interactive.
 
 ---
 
-## When to use
+## Usage
 
-- Describe the primary intended use case here.
-- Add context-specific guidance for this component.
+### When to use
 
-## When not to use
+- Showing a **count** of items (notifications, unread messages).
+- Indicating **status** (active, inactive, pending).
+- Labelling a **category** or type (Beta, Deprecated, New).
 
-- Add guidance on when another component is a better fit.
-- Related: **Tag/Chip**
+### When not to use
+
+- **Interactive labels** users can remove — use `Tag` instead.
+- **Selection filters** — use `Chip`.
+- **Detailed status** — use `Banner` or `Alert` for messages requiring attention.
+
+### Variants
+
+| Variant | Token | Use for |
+|---|---|---|
+| `default` | `var(--primary)` | Neutral count, primary label |
+| `secondary` | `var(--secondary)` | De-emphasised label |
+| `destructive` | `var(--destructive)` | Error count, critical status |
+| `outline` | border only | Subtle category label |
 
 ---
 
 ## Content guidelines
 
-- Use sentence case for all labels and descriptions.
-- Keep text concise — 1–4 words for labels, 1–2 sentences for descriptions.
+- Keep badge text **1–3 words** or a number.
+- For counts > 99, show "99+" (truncate).
+- Status labels: sentence case — "Active", "In progress", not "ACTIVE".
 
 ---
 
-## Related components
+## Related
 
-- [Tag/Chip](/docs/ui-tag/chip-examples--docs)
+- [Tag](/docs/components-status-indicators-tag-examples--docs) — removable interactive label
+- [Chip](/docs/components-forms-and-input-chip-examples--docs) — selection filter
+- [Banner](/docs/components-messaging-banner-examples--docs) — persistent message strip
