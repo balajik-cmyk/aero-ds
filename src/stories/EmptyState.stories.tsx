@@ -6,7 +6,6 @@ import { Button } from "@/app/components/ui/button";
 // Fetched from Figma sub-nodes (237×205px), text/CTA rendered by component
 import illusApproval from "./assets/empty-state/illus-approval.png";
 import illusListings  from "./assets/empty-state/illus-listings.png";
-import illusReports   from "./assets/empty-state/illus-reports.png";
 import illusInbox     from "./assets/empty-state/illus-inbox.png";
 import illusContacts  from "./assets/empty-state/illus-contacts.png";
 
@@ -50,16 +49,6 @@ export const AddLocations: Story = {
   },
 };
 
-export const DashboardWidgets: Story = {
-  name: "Onboarding / Dashboard widgets",
-  args: {
-    variant: "onboarding",
-    illustration: <Illus src={illusReports} alt="" />,
-    title: "Your dashboard, your way",
-    description: "Add widgets to your dashboard from an extensive collection across reviews, social and more.",
-    action: <Button size="sm">Add widgets</Button>,
-  },
-};
 
 export const CreateInbox: Story = {
   name: "Onboarding / Create inbox",
@@ -115,8 +104,7 @@ export const AllVariants: Story = {
         {[
           { illus: illusApproval, title: "Create your first approval", desc: "Streamline collaboration in one place for all stakeholders, by assigning them tasks and receiving updates.", cta: "Create approval" },
           { illus: illusListings,  title: "Add your locations", desc: "Start adding your business locations to start tracking your reviews online.", cta: "Add location" },
-          { illus: illusReports,   title: "Your dashboard, your way", desc: "Add widgets to your dashboard from an extensive collection across reviews, social and more.", cta: "Add widgets" },
-        ].map(({ illus, title, desc, cta }) => (
+          ].map(({ illus, title, desc, cta }) => (
           <div key={title} className="border border-border rounded-lg bg-background overflow-hidden">
             <EmptyState variant="onboarding" illustration={<Illus src={illus} alt="" />} title={title} description={desc} action={<Button size="sm">{cta}</Button>} />
           </div>
