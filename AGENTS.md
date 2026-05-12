@@ -133,6 +133,27 @@ Exception: proper nouns (Google, Facebook, BirdAI) and acronyms (CSV, PDF, API).
 
 ⛔ **Only use colors from aero-ds tokens. No Tailwind color palette, no raw hex, no outside color libraries.**
 
+### § 2b — UI components use --color-* · Charts use --graph-* · NEVER mix
+
+| Use case | Correct token | ⛔ Wrong |
+|---|---|---|
+| Badge bg | `var(--color-green-10)` | `var(--graph-green)` |
+| Badge text | `var(--color-green-100)` | `bg-green-50` |
+| Avatar bg | `var(--color-blue-10)` | `color-mix(...)` |
+| Chart bar fill | `var(--graph-starfleet-blue)` | `var(--color-blue-100)` |
+| Chart compare | `var(--graph-starfleet-blue-compare)` | `bg-blue-200` |
+
+```
+Token guide:
+  UI bg (badge, avatar, tag, chip)  → var(--color-[name]-10)
+  UI text                            → var(--color-[name]-100)
+  Chart / data-viz fill              → var(--graph-[name])
+  Chart compare / lighter shade      → var(--graph-[name]-compare)
+```
+
+Available UI color names: `blue · red · purple · green · gray · yellow`
+(orange/teal/cyan/pink map to nearest Figma scale — see badge.v1.tsx TOKENS map)
+
 ```tsx
 // ✅ Only these color sources are allowed:
 var(--primary)              // brand blue

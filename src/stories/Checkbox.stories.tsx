@@ -8,6 +8,7 @@ const meta: Meta<typeof Checkbox> = {
   tags: ["autodocs"],
   parameters: { layout: "centered" },
   argTypes: {
+    variant:  { control: "radio", options: ["solid"] },
     checked:  { control: "select", options: [true, false, "indeterminate"] },
     disabled: { control: "boolean" },
   },
@@ -15,6 +16,21 @@ const meta: Meta<typeof Checkbox> = {
 
 export default meta;
 type Story = StoryObj<typeof Checkbox>;
+
+// ── Variants ───────────────────────────────────────────────────────────────
+
+export const Variants: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3">
+      <p className="text-xs text-muted-foreground">solid</p>
+      <div className="flex items-center gap-3">
+        <Checkbox variant="solid" checked={false} />
+        <Checkbox variant="solid" checked="indeterminate" />
+        <Checkbox variant="solid" checked={true} />
+      </div>
+    </div>
+  ),
+};
 
 // ── Single states ──────────────────────────────────────────────────────────
 
