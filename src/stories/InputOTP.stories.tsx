@@ -9,7 +9,7 @@ import {
 import { REGEXP_ONLY_DIGITS } from "input-otp";
 
 const meta: Meta = {
-  title: "UI/InputOTP/Examples",
+  title: "Components/Forms and input/InputOTP/Examples",
   tags: ["autodocs"],
 };
 

@@ -5,7 +5,7 @@ import { TrendingUp, TrendingDown } from "@phosphor-icons/react";
 import { cn } from "@/app/components/ui/utils";
 
 const meta: Meta = {
-  title: "UI/Charts/KPISummary/Examples",
+  title: "Components/Charts/KPISummary/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

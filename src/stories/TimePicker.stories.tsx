@@ -3,7 +3,7 @@ import { useState } from "react";
 import { TimePicker, type TimeValue } from "@/app/components/ui/time-picker";
 
 const meta: Meta<typeof TimePicker> = {
-  title: "UI/TimePicker/Examples",
+  title: "Components/Forms and input/TimePicker/Examples",
   component: TimePicker,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

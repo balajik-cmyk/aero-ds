@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 const meta: Meta = {
-  title: "UI/ToggleGroup/Examples",
+  title: "Components/Forms and input/ToggleGroup/Examples",
   tags: ["autodocs"],
 };
 

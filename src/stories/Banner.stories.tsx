@@ -3,7 +3,7 @@ import { Banner } from "@/app/components/ui/banner";
 import { Button } from "@/app/components/ui/button";
 
 const meta: Meta<typeof Banner> = {
-  title: "UI/Banner/Examples",
+  title: "Components/Messaging/Banner/Examples",
   component: Banner,
   tags: ["autodocs"],
   parameters: { layout: "padded" },

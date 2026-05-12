@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Chip } from "@/app/components/ui/chip";
 
 const meta: Meta<typeof Chip> = {
-  title: "UI/Chip/Examples",
+  title: "Components/Forms and input/Chip/Examples",
   component: Chip,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

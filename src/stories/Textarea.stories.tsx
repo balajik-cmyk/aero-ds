@@ -3,7 +3,7 @@ import { Textarea } from "@/app/components/ui/textarea";
 import { Label } from "@/app/components/ui/label";
 
 const meta: Meta<typeof Textarea> = {
-  title: "UI/Textarea/Examples",
+  title: "Components/Forms and input/Textarea/Examples",
   component: Textarea,
   tags: ["autodocs"],
   argTypes: {

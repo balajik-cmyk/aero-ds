@@ -10,7 +10,7 @@ import {
 } from "@/app/components/ui/chart";
 
 const meta: Meta = {
-  title: "UI/Charts/ChartTooltip/Examples",
+  title: "Components/Charts/ChartTooltip/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

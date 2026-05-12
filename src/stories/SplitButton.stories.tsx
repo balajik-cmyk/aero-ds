@@ -8,7 +8,7 @@ const ITEMS = [
 ];
 
 const meta: Meta<typeof SplitButton> = {
-  title: "UI/SplitButton/Examples",
+  title: "Components/Forms and input/SplitButton/Examples",
   component: SplitButton,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

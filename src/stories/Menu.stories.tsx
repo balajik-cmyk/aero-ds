@@ -9,7 +9,7 @@ import { Button } from "@/app/components/ui/button";
 import { Gear, UserCircle, SignOut, Plus, Trash } from "@phosphor-icons/react";
 
 const meta: Meta = {
-  title: "UI/Menu/Examples",
+  title: "Components/Navigation/Menu/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

@@ -11,7 +11,7 @@ const PLATFORMS = [
 ];
 
 const meta: Meta<typeof CheckboxGroup> = {
-  title: "UI/CheckboxGroup/Examples",
+  title: "Components/Forms and input/CheckboxGroup/Examples",
   component: CheckboxGroup,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

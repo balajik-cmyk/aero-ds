@@ -3,7 +3,7 @@ import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Cell } from 
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/app/components/ui/chart";
 
 const meta: Meta = {
-  title: "UI/Charts/Bubble/Examples",
+  title: "Components/Charts/Bubble/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

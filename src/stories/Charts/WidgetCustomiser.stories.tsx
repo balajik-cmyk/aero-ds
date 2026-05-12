@@ -4,7 +4,7 @@ import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid } from "rec
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/app/components/ui/chart";
 
 const meta: Meta = {
-  title: "UI/Charts/WidgetCustomiser/Examples",
+  title: "Components/Charts/WidgetCustomiser/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

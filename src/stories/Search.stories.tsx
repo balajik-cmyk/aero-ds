@@ -3,7 +3,7 @@ import { Search } from "@/app/components/ui/search";
 import { useState } from "react";
 
 const meta: Meta<typeof Search> = {
-  title: "UI/Search/Examples",
+  title: "Components/Forms and input/Search/Examples",
   component: Search,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

@@ -12,7 +12,7 @@ import { Button } from "@/app/components/ui/button";
 import { Badge } from "@/app/components/ui/badge";
 
 const meta: Meta<typeof Card> = {
-  title: "UI/Card/Examples",
+  title: "Components/Text and data display/Card/Examples",
   component: Card,
   tags: ["autodocs"],
 };

@@ -3,7 +3,7 @@ import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, Cell } from "recharts";
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/app/components/ui/chart";
 
 const meta: Meta = {
-  title: "UI/Charts/Heatmap/Examples",
+  title: "Components/Charts/Heatmap/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

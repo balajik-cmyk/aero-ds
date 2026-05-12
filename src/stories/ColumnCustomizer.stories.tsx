@@ -15,7 +15,7 @@ const COLUMNS = [
 ];
 
 const meta: Meta<typeof ColumnCustomizer> = {
-  title: "UI/ColumnCustomizer/Examples",
+  title: "Components/Complex/ColumnCustomizer/Examples",
   component: ColumnCustomizer,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

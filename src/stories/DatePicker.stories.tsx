@@ -3,7 +3,7 @@ import { useState } from "react";
 import { DatePicker } from "@/app/components/ui/date-picker";
 
 const meta: Meta<typeof DatePicker> = {
-  title: "UI/DatePicker/Examples",
+  title: "Components/Forms and input/DatePicker/Examples",
   component: DatePicker,
   tags: ["autodocs"],
   parameters: {

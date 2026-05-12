@@ -4,7 +4,7 @@ import { Button } from "@/app/components/ui/button";
 import { Info } from "lucide-react";
 
 const meta: Meta = {
-  title: "UI/Tooltip/Examples",
+  title: "Components/Overlays and layering/Tooltip/Examples",
   tags: ["autodocs"],
 };
 

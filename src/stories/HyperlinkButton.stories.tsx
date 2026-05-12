@@ -3,7 +3,7 @@ import { HyperlinkButton } from "@/app/components/ui/hyperlink-button";
 import { ArrowRight } from "@phosphor-icons/react";
 
 const meta: Meta<typeof HyperlinkButton> = {
-  title: "UI/HyperlinkButton/Examples",
+  title: "Components/Forms and input/HyperlinkButton/Examples",
   component: HyperlinkButton,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 
 const meta: Meta = {
-  title: "UI/Command/Examples",
+  title: "Components/Utilities/Command/Examples",
   tags: ["autodocs"],
 };
 

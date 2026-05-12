@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 import { ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent, type ChartConfig } from "@/app/components/ui/chart";
 
 const meta: Meta = {
-  title: "UI/Charts/VerticalBar/Examples",
+  title: "Components/Charts/VerticalBar/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

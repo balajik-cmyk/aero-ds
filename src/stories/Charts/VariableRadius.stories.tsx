@@ -3,7 +3,7 @@ import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import { ChartContainer, type ChartConfig } from "@/app/components/ui/chart";
 
 const meta: Meta = {
-  title: "UI/Charts/VariableRadius/Examples",
+  title: "Components/Charts/VariableRadius/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

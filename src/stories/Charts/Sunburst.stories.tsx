@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import * as d3 from "d3-hierarchy";
 
 const meta: Meta = {
-  title: "UI/Charts/Sunburst/Examples",
+  title: "Components/Charts/Sunburst/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

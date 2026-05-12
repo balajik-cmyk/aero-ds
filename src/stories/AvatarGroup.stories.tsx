@@ -11,7 +11,7 @@ const AVATARS = [
 ];
 
 const meta: Meta<typeof AvatarGroup> = {
-  title: "UI/AvatarGroup/Examples",
+  title: "Components/Images and icons/AvatarGroup/Examples",
   component: AvatarGroup,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

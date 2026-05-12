@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import * as d3Hierarchy from "d3-hierarchy";
 
 const meta: Meta = {
-  title: "UI/Charts/SplitPackBubble/Examples",
+  title: "Components/Charts/SplitPackBubble/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

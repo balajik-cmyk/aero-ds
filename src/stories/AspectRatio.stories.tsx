@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { AspectRatio } from "@/app/components/ui/aspect-ratio";
 
 const meta: Meta = {
-  title: "UI/AspectRatio/Examples",
+  title: "Components/Utilities/AspectRatio/Examples",
   tags: ["autodocs"],
 };
 

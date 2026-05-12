@@ -3,7 +3,7 @@ import { EmptyState } from "@/app/components/ui/empty-state";
 import { Button } from "@/app/components/ui/button";
 
 const meta: Meta<typeof EmptyState> = {
-  title: "UI/EmptyState/Examples",
+  title: "Components/Status indicators/EmptyState/Examples",
   component: EmptyState,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Cell } from "recharts";
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/app/components/ui/chart";
 
 const meta: Meta = {
-  title: "UI/Charts/HorizontalBar/Examples",
+  title: "Components/Charts/HorizontalBar/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };
