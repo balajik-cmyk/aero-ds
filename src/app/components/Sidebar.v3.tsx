@@ -28,7 +28,7 @@ const DEFAULT_AVATAR = "https://images.unsplash.com/photo-1617853701628-bfcf8b81
 
 /* ─── L1 icon-strip items (v3 restructured) ─── */
 const iconStripItems: { label: string; Icon: React.ElementType }[] = [
-  { label: "BirdAI",     Icon: Sparkle      },
+  { label: "Agents",     Icon: Sparkle      },
   { label: "Tasks",      Icon: ListChecks   },
   { label: "Agent lib",  Icon: Robot        },
   { label: "Myna IQ",    Icon: Brain        },
@@ -48,7 +48,7 @@ interface IconStripProps {
 }
 
 export function IconStrip({ currentView, onViewChange, iconSize = L1_STRIP_ICON_SIZE, onOpenKeyboardShortcuts }: IconStripProps) {
-  const [activeIcon, setActiveIcon] = useState("BirdAI");
+  const [activeIcon, setActiveIcon] = useState("Agents");
   const [profileOpen, setProfileOpen] = useState(false);
   const [showAppearance, setShowAppearance] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
@@ -68,7 +68,7 @@ export function IconStrip({ currentView, onViewChange, iconSize = L1_STRIP_ICON_
       currentView === "agent-detail" ||
       currentView === "agents-onboarding" ||
       currentView === "birdai-reports"
-    ) setActiveIcon("BirdAI");
+    ) setActiveIcon("Agents");
     else if (
       currentView === "tasks-approval" ||
       currentView === "tasks-fix-recommendation" ||
@@ -135,7 +135,7 @@ export function IconStrip({ currentView, onViewChange, iconSize = L1_STRIP_ICON_
               key={label}
               onClick={() => {
                 setActiveIcon(label);
-                if (label === "BirdAI") onViewChange("agents-monitor");
+                if (label === "Agents") onViewChange("agents-monitor");
                 else if (label === "Tasks") onViewChange("tasks-approval");
                 else if (label === "Agent lib") onViewChange("agent-library");
                 else if (label === "Myna IQ") onViewChange("myna-iq");
@@ -163,7 +163,7 @@ export function IconStrip({ currentView, onViewChange, iconSize = L1_STRIP_ICON_
                   isActive
                     ? "text-primary"
                     : "text-muted-foreground group-hover:scale-110 motion-reduce:group-hover:scale-100"
-                } ${label === "BirdAI" && isActive ? "group-hover:animate-[agents-shimmer_3s_ease-in-out_infinite] motion-reduce:animate-none" : ""}`}
+                } ${label === "Agents" && isActive ? "group-hover:animate-[agents-shimmer_3s_ease-in-out_infinite] motion-reduce:animate-none" : ""}`}
               />
             </button>
           );
