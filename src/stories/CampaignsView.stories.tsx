@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { CampaignsView } from "@/app/components/CampaignsView";
 
 const meta: Meta<typeof CampaignsView> = {
-  title: "App/Views/CampaignsView",
+  title: "App/Views/CampaignsView/Examples",
   component: CampaignsView,
   parameters: {
     layout: "fullscreen",

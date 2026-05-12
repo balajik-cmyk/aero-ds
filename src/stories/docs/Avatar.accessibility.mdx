@@ -1,0 +1,23 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="UI/Avatar/Accessibility" />
+
+# Avatar — Accessibility
+
+## Keyboard navigation
+
+| Key | Action |
+|---|---|
+| `Tab` | Move focus to the component |
+| `Enter` / `Space` | Activate (where applicable) |
+| `Escape` | Close overlays / dismiss (where applicable) |
+
+## Screen reader behaviour
+
+- Uses Radix UI primitives — ARIA roles and states are managed automatically.
+- Ensure visible labels are always paired using `id` + `htmlFor` on form controls.
+- For icon-only variants, add `aria-label`.
+
+## Focus
+
+Focus ring: 3px `var(--ring)` offset ring, visible on keyboard navigation only.

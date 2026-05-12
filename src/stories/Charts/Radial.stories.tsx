@@ -3,7 +3,7 @@ import { RadialBarChart, RadialBar, PolarAngleAxis, Legend, ResponsiveContainer 
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/app/components/ui/chart";
 
 const meta: Meta = {
-  title: "UI/Charts/Radial",
+  title: "UI/Charts/Radial/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

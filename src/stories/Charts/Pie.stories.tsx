@@ -3,7 +3,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recha
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/app/components/ui/chart";
 
 const meta: Meta = {
-  title: "UI/Charts/Pie",
+  title: "UI/Charts/Pie/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

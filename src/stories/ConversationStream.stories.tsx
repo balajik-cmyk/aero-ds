@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ConversationStream } from "@/app/components/ConversationStream";
 
 const meta: Meta<typeof ConversationStream> = {
-  title: "App/Views/ConversationStream",
+  title: "App/Views/ConversationStream/Examples",
   component: ConversationStream,
   parameters: {
     layout: "fullscreen",

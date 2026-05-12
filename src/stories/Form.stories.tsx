@@ -20,7 +20,7 @@ import {
 } from "@/app/components/ui/select";
 
 const meta: Meta = {
-  title: "UI/Form",
+  title: "UI/Form/Examples",
   tags: ["autodocs"],
 };
 

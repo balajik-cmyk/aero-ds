@@ -12,7 +12,7 @@ import {
 import { Label } from "@/app/components/ui/label";
 
 const meta: Meta<typeof Select> = {
-  title: "UI/Select",
+  title: "UI/Select/Examples",
   component: Select,
   tags: ["autodocs"],
 };

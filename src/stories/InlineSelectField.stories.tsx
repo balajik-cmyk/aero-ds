@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { InlineSelectField } from "@/app/components/ui/inline-select-field";
 
 const meta: Meta<typeof InlineSelectField> = {
-  title: "App/InlineSelectField",
+  title: "App/InlineSelectField/Examples",
   component: InlineSelectField,
   tags: ["autodocs"],
   parameters: {

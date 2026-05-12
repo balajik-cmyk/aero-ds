@@ -1,0 +1,62 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="UI/Button/Usage" />
+
+# Button — Usage
+
+A button triggers an event or action and lets users know what will happen next.
+
+---
+
+## When to use
+
+- To trigger a primary action on a page (e.g. **Save**, **Submit**, **Create**)
+- To offer a secondary action that complements the primary (e.g. **Cancel**, **Preview**)
+- To navigate to a related resource when a hyperlink is not appropriate
+
+## When not to use
+
+- **Don't use a button as a navigation link.** Use `HyperlinkButton` or an `<a>` tag for navigating between pages.
+- **Don't stack more than one primary button** in the same context. Reserve `variant="default"` for the single most important action.
+- **Don't use a button for destructive actions without confirmation.** Use `variant="destructive"` and pair with a `Dialog` confirmation.
+
+---
+
+## Variants
+
+| Variant | Token | Use for |
+|---|---|---|
+| `default` | `var(--primary)` | Primary CTA — one per context |
+| `secondary` | `var(--secondary)` | Secondary action alongside a primary |
+| `outline` | border only | Tertiary or cancel actions |
+| `ghost` | no border/bg | Inline or toolbar actions |
+| `destructive` | `var(--destructive)` | Irreversible delete/remove actions |
+| `link` | underline text | Navigation-style inline actions |
+
+---
+
+## Sizes
+
+| Size | Height | Use for |
+|---|---|---|
+| `lg` | 44px | Hero CTAs, prominent actions |
+| `default` | 34px | Standard — use in most cases |
+| `sm` | 32px | Compact toolbars, table row actions |
+| `icon` | 34×34px | Icon-only buttons — must have `aria-label` |
+
+---
+
+## Content guidelines
+
+- Use **sentence case**: "Send response", not "Send Response"
+- Use **verb-first** labels: "Save changes", "Delete agent", "Add contact"
+- Keep labels **2–4 words** — avoid vague labels like "Click here" or "Submit"
+- For icon buttons, always provide an `aria-label`
+
+---
+
+## Related components
+
+- [SplitButton](/docs/ui-splitbutton-examples--docs) — primary action + dropdown options
+- [HyperlinkButton](/docs/ui-hyperlinkbutton-examples--docs) — link-style text actions
+- [Menu](/docs/ui-menu-examples--docs) — standalone dropdown menu

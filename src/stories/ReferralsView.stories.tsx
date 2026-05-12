@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ReferralsView } from "@/app/components/ReferralsView";
 
 const meta: Meta<typeof ReferralsView> = {
-  title: "App/Views/ReferralsView",
+  title: "App/Views/ReferralsView/Examples",
   component: ReferralsView,
   parameters: {
     layout: "fullscreen",

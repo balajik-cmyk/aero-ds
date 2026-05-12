@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SurveysView } from "@/app/components/SurveysView";
 
 const meta: Meta<typeof SurveysView> = {
-  title: "App/Views/SurveysView",
+  title: "App/Views/SurveysView/Examples",
   component: SurveysView,
   parameters: {
     layout: "fullscreen",

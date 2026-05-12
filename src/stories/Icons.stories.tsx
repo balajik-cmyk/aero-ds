@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 const meta: Meta = {
-  title: "Design System/Icons",
+  title: "Design System/Icons/Examples",
   parameters: { layout: "padded" },
 };
 export default meta;

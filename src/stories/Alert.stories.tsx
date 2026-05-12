@@ -3,7 +3,7 @@ import { Alert, AlertTitle, AlertDescription } from "@/app/components/ui/alert";
 import { AlertCircle, CheckCircle, Info, AlertTriangle } from "lucide-react";
 
 const meta: Meta<typeof Alert> = {
-  title: "UI/Alert",
+  title: "UI/Alert/Examples",
   component: Alert,
   tags: ["autodocs"],
   argTypes: {

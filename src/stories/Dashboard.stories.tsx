@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Dashboard } from "@/app/components/Dashboard";
 
 const meta: Meta<typeof Dashboard> = {
-  title: "App/Views/Dashboard",
+  title: "App/Views/Dashboard/Examples",
   component: Dashboard,
   parameters: {
     layout: "fullscreen",

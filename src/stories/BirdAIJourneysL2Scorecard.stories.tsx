@@ -11,7 +11,7 @@ import { APP_SHELL_GUTTER_SURFACE_CLASS } from "@/app/components/layout/appShell
  * Primary review surface for hierarchy, Outcomes accent row, Campaign agents selected (Figma 577:63170), sticky title + Create workflow, and section expansion.
  */
 const meta: Meta = {
-  title: "App/Bird AI/Journeys L2 scorecard",
+  title: "App/Bird AI/Journeys L2 scorecard/Examples",
   parameters: {
     layout: "fullscreen",
     docs: {

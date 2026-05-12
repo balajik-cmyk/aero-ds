@@ -3,7 +3,7 @@ import { Treemap, ResponsiveContainer } from "recharts";
 import { ChartContainer, type ChartConfig } from "@/app/components/ui/chart";
 
 const meta: Meta = {
-  title: "UI/Charts/Treemap",
+  title: "UI/Charts/Treemap/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

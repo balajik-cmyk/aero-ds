@@ -32,7 +32,7 @@ function SocialPostPreviewSheetDemo() {
 }
 
 const meta: Meta<typeof SocialPostPreviewSheet> = {
-  title: "App/Social/Post preview sheet",
+  title: "App/Social/Post preview sheet/Examples",
   component: SocialPostPreviewSheet,
   tags: ["autodocs"],
   parameters: {

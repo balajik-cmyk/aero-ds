@@ -5,7 +5,7 @@ import { APP_MAIN_CONTENT_SHELL_CLASS } from "@/app/components/layout/appShellCl
 import { MonitorNotificationsProvider } from "@/app/context/MonitorNotificationsContext";
 
 const viewMeta: Meta = {
-  title: "App/Views/Agents",
+  title: "App/Views/Agents/Examples",
   parameters: { layout: "fullscreen" },
 };
 

@@ -10,7 +10,7 @@ import {
 } from "@/app/components/ui/breadcrumb";
 
 const meta: Meta = {
-  title: "UI/Breadcrumb",
+  title: "UI/Breadcrumb/Examples",
   tags: ["autodocs"],
 };
 

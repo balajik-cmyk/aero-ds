@@ -12,7 +12,7 @@ import { Badge } from "@/app/components/ui/badge";
 import { Button } from "@/app/components/ui/button";
 
 const meta: Meta<typeof Table> = {
-  title: "UI/Table",
+  title: "UI/Table/Examples",
   component: Table,
   tags: ["autodocs"],
 };

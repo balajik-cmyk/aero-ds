@@ -15,7 +15,7 @@ import {
 } from "@/app/data/reviewsFilters";
 
 const meta: Meta = {
-  title: "App/Filter pane",
+  title: "App/Filter pane/Examples",
   parameters: { layout: "fullscreen" },
 };
 

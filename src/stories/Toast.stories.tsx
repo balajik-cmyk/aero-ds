@@ -3,7 +3,7 @@ import { toast, Toaster } from "@/app/components/ui/toast";
 import { Button } from "@/app/components/ui/button";
 
 const meta: Meta = {
-  title: "UI/Toast",
+  title: "UI/Toast/Examples",
   tags: ["autodocs"],
   parameters: {
     layout: "centered",

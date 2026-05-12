@@ -28,7 +28,7 @@ const NODES = [
 ];
 
 const meta: Meta<typeof Tree> = {
-  title: "UI/Tree",
+  title: "UI/Tree/Examples",
   component: Tree,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

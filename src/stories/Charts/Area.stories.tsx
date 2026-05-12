@@ -3,7 +3,7 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from "recharts";
 import { ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent, type ChartConfig } from "@/app/components/ui/chart";
 
 const meta: Meta = {
-  title: "UI/Charts/Area",
+  title: "UI/Charts/Area/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

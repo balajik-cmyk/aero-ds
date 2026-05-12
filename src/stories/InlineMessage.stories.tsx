@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { InlineMessage } from "@/app/components/ui/inline-message";
 
 const meta: Meta<typeof InlineMessage> = {
-  title: "UI/InlineMessage",
+  title: "UI/InlineMessage/Examples",
   component: InlineMessage,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

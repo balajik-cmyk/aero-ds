@@ -3,7 +3,7 @@ import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent, type ChartConfig } from "@/app/components/ui/chart";
 
 const meta: Meta = {
-  title: "UI/Charts/Combo",
+  title: "UI/Charts/Combo/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

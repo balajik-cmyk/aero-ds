@@ -10,7 +10,7 @@ import {
 } from "@/app/components/ui/pagination";
 
 const meta: Meta = {
-  title: "UI/Pagination",
+  title: "UI/Pagination/Examples",
   tags: ["autodocs"],
 };
 

@@ -4,7 +4,7 @@ import { BirdAILoginPage } from "@/app/components/auth/BirdAILoginPage";
 import { LoginMarketingPanel } from "@/app/components/auth/LoginMarketingPanel";
 
 const meta: Meta<typeof BirdAILoginPage> = {
-  title: "App/Auth/Login",
+  title: "App/Auth/Login/Examples",
   component: BirdAILoginPage,
   tags: ["autodocs"],
   parameters: {

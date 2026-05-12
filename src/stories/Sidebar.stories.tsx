@@ -86,7 +86,7 @@ function SidebarFrame({ children }: { children: React.ReactNode }) {
 
 // ─── Storybook meta ───────────────────────────────────
 const meta: Meta = {
-  title: "App/Sidebar",
+  title: "App/Sidebar/Examples",
   parameters: { layout: "fullscreen" },
   argTypes: {
     currentView: {

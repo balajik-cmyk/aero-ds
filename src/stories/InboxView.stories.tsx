@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { InboxView } from "@/app/components/InboxView";
 
 const meta: Meta<typeof InboxView> = {
-  title: "App/Views/InboxView",
+  title: "App/Views/InboxView/Examples",
   component: InboxView,
   parameters: { layout: "fullscreen" },
 };

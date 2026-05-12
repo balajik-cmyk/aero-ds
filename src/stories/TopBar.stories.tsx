@@ -3,7 +3,7 @@ import { TopBar } from "@/app/components/TopBar";
 import type { AppView } from "@/app/App";
 
 const meta: Meta<typeof TopBar> = {
-  title: "App/TopBar",
+  title: "App/TopBar/Examples",
   component: TopBar,
   tags: ["autodocs"],
   argTypes: {

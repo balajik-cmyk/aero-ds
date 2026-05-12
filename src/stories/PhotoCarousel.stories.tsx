@@ -151,7 +151,7 @@ function PhotoCarousel({ photos, visibleCount = 4 }: { photos: string[]; visible
    META + STORIES
    ══════════════════════════════════════════════════════ */
 const meta: Meta = {
-  title: "UI/PhotoCarousel",
+  title: "UI/PhotoCarousel/Examples",
   parameters: { layout: "padded" },
 };
 export default meta;

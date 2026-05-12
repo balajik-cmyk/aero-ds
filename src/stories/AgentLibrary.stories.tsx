@@ -3,7 +3,7 @@ import { AgentLibraryView } from "@/app/components/AgentLibraryView";
 import { APP_MAIN_CONTENT_SHELL_CLASS } from "@/app/components/layout/appShellClasses";
 
 const meta: Meta<typeof AgentLibraryView> = {
-  title: "App/Views/AgentLibrary",
+  title: "App/Views/AgentLibrary/Examples",
   component: AgentLibraryView,
   parameters: { layout: "fullscreen" },
 };

@@ -10,7 +10,7 @@ import { Label } from "@/app/components/ui/label";
 import { CalendarDays, Settings2 } from "lucide-react";
 
 const meta: Meta = {
-  title: "UI/Popover",
+  title: "UI/Popover/Examples",
   tags: ["autodocs"],
 };
 

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import BusinessOverviewDashboard from "@/app/components/BusinessOverviewDashboard";
 
 const meta: Meta<typeof BusinessOverviewDashboard> = {
-  title: "App/Views/BusinessOverviewDashboard",
+  title: "App/Views/BusinessOverviewDashboard/Examples",
   component: BusinessOverviewDashboard,
   parameters: {
     layout: "fullscreen",

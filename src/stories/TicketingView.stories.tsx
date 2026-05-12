@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { TicketingView } from "@/app/components/TicketingView";
 
 const meta: Meta<typeof TicketingView> = {
-  title: "App/Views/TicketingView",
+  title: "App/Views/TicketingView/Examples",
   component: TicketingView,
   parameters: {
     layout: "fullscreen",

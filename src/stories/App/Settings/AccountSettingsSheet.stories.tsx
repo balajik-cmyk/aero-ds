@@ -3,7 +3,7 @@ import { AccountSettingsSheet } from "@/app/components/settings/AccountSettingsS
 import { AccountSettingsSheetStoryDemo } from "@/stories/App/Settings/AccountSettingsSheetStoryDemo";
 
 const meta: Meta<typeof AccountSettingsSheet> = {
-  title: "App/Settings/Account settings",
+  title: "App/Settings/Account settings/Examples",
   component: AccountSettingsSheet,
   tags: ["autodocs"],
   parameters: {

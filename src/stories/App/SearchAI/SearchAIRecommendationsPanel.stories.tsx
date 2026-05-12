@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SearchAIRecommendationsPanel } from "@/app/components/searchai/SearchAIRecommendationsPanel";
 
 const meta: Meta<typeof SearchAIRecommendationsPanel> = {
-  title: "App/Search AI/Recommendations",
+  title: "App/Search AI/Recommendations/Examples",
   component: SearchAIRecommendationsPanel,
   tags: ["autodocs"],
   parameters: {

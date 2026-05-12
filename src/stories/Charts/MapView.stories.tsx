@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
 
 const meta: Meta = {
-  title: "UI/Charts/MapView",
+  title: "UI/Charts/MapView/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

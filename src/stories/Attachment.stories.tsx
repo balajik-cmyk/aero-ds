@@ -6,7 +6,7 @@ import { Button } from "@/app/components/ui/button";
 import { Spinner } from "@/app/components/ui/spinner";
 
 const meta: Meta = {
-  title: "UI/Attachment",
+  title: "UI/Attachment/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

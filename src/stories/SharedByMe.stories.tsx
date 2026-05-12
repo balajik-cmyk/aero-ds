@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SharedByMe } from "@/app/components/SharedByMe";
 
 const meta: Meta<typeof SharedByMe> = {
-  title: "App/Views/SharedByMe",
+  title: "App/Views/SharedByMe/Examples",
   component: SharedByMe,
   parameters: { layout: "fullscreen" },
 };

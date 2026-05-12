@@ -1,0 +1,53 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="UI/Checkbox/Usage" />
+
+# Checkbox — Usage
+
+A checkbox lets users select one or more options from a list, or toggle a single boolean setting.
+
+---
+
+## When to use
+
+- When the user can select **multiple options** from a list (use `CheckboxGroup`)
+- When toggling a **single setting** on or off (e.g. "Remember me", "Enable notifications")
+- When showing a **partial selection** — use `checked="indeterminate"` for select-all patterns
+
+## When not to use
+
+- **Single mutually exclusive choice** — use `RadioGroup` instead
+- **Binary yes/no toggle** in a form — use `Switch` for a more prominent on/off control
+- **Filtering** a list — use `Chip` for selection filters
+
+---
+
+## States
+
+| State | `checked` prop | Visual |
+|---|---|---|
+| Unchecked | `false` (default) | Empty square, grey border |
+| Checked | `true` | Blue fill, white checkmark |
+| Indeterminate | `"indeterminate"` | Blue fill, white dash — used for partial select-all |
+| Disabled | `disabled` | Grey, reduced opacity |
+
+---
+
+## With labels
+
+Always pair a checkbox with a `<Label>` using matching `id` / `htmlFor`:
+
+```tsx
+<Checkbox id="notify" />
+<Label htmlFor="notify">Send email notifications</Label>
+```
+
+For descriptions below the label, wrap in a flex column — see `WithLabelAndDescription` story.
+
+---
+
+## Related components
+
+- [CheckboxGroup](/docs/ui-checkboxgroup-examples--docs) — managed list with select-all
+- [RadioGroup](/docs/ui-radiogroup-examples--docs) — single selection from a list
+- [Switch](/docs/ui-switch-examples--docs) — prominent binary toggle

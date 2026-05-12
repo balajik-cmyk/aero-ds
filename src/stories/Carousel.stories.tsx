@@ -9,7 +9,7 @@ import {
 import { Card, CardContent } from "@/app/components/ui/card";
 
 const meta: Meta = {
-  title: "UI/Carousel",
+  title: "UI/Carousel/Examples",
   tags: ["autodocs"],
 };
 

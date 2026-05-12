@@ -1,0 +1,23 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="UI/Checkbox/Accessibility" />
+
+# Checkbox — Accessibility
+
+## Keyboard navigation
+
+| Key | Action |
+|---|---|
+| `Tab` | Move focus to the checkbox |
+| `Space` | Toggle checked / unchecked |
+
+## Screen reader behaviour
+
+- Built on `@radix-ui/react-checkbox` — renders a native-accessible button with `role="checkbox"`
+- `aria-checked` is set automatically: `"true"`, `"false"`, or `"mixed"` for indeterminate
+- Always pair with a `<Label htmlFor="...">` — this becomes the accessible name
+- For error state: add `aria-invalid="true"` and `aria-describedby` pointing to the `InlineMessage` id
+
+## Focus ring
+
+3px `var(--ring)` outline, visible on keyboard navigation only (`focus-visible`).

@@ -1,0 +1,32 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="UI/Button/Accessibility" />
+
+# Button — Accessibility
+
+## Keyboard navigation
+
+| Key | Action |
+|---|---|
+| `Tab` | Move focus to the button |
+| `Shift + Tab` | Move focus away from the button |
+| `Enter` or `Space` | Activate the button |
+
+## Screen reader behaviour
+
+- Rendered as a native `<button>` element — no extra `role` needed
+- Text content is the accessible name — keep it descriptive
+- Icon-only buttons **must** have `aria-label`: `<Button aria-label="Delete agent">`
+- Loading state: add `aria-busy="true"` and `aria-label="Loading"` when the button triggers an async action
+- Disabled buttons: use the `disabled` prop — screen readers announce "dimmed" or "greyed out"
+
+## Colour contrast
+
+All button variants meet WCAG 2.1 AA (4.5:1 minimum):
+- `default` — white text on `var(--primary)` (#1E44CC) ✅
+- `destructive` — white text on `var(--destructive)` (#d4183d) ✅
+- `outline` / `ghost` — foreground text on background ✅
+
+## Focus
+
+Focus ring is rendered using `focus-visible:ring-[3px] focus-visible:ring-ring/50` — visible only on keyboard navigation, not on mouse click.

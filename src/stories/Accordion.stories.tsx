@@ -7,7 +7,7 @@ import {
 } from "@/app/components/ui/accordion";
 
 const meta: Meta<typeof Accordion> = {
-  title: "UI/Accordion",
+  title: "UI/Accordion/Examples",
   component: Accordion,
   tags: ["autodocs"],
 };

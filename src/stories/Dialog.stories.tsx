@@ -14,7 +14,7 @@ import { Input } from "@/app/components/ui/input";
 import { Label } from "@/app/components/ui/label";
 
 const meta: Meta = {
-  title: "UI/Dialog",
+  title: "UI/Dialog/Examples",
   tags: ["autodocs"],
 };
 

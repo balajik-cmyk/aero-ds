@@ -23,7 +23,7 @@ function InboxShell({ children }: { children: React.ReactNode }) {
 }
 
 const meta: Meta<typeof CallRecordingPlayer> = {
-  title: "App/Views/CallRecordingPlayer",
+  title: "App/Views/CallRecordingPlayer/Examples",
   component: CallRecordingPlayer,
   decorators: [
     (Story) => (

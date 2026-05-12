@@ -30,6 +30,25 @@ const preview: Preview = {
     },
     // Remove the default backgrounds addon — theme is controlled by the toolbar above
     backgrounds: { disable: true },
+    // Atlassian-style docs: table of contents + code shown per story
+    docs: {
+      toc: {
+        contentsSelector: ".sbdocs-content",
+        headingSelector: "h2, h3",
+        ignoreSelector: "#primary",
+        title: "On this page",
+        disable: false,
+        unsafeTocbotOptions: {
+          orderedList: false,
+        },
+      },
+      canvas: {
+        sourceState: "shown",
+      },
+      story: {
+        inline: true,
+      },
+    },
   },
   decorators: [
     (Story, context) => {

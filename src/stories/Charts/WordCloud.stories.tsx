@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import cloud from "d3-cloud";
 
 const meta: Meta = {
-  title: "UI/Charts/WordCloud",
+  title: "UI/Charts/WordCloud/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

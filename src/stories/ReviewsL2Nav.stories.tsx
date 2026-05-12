@@ -66,7 +66,7 @@ function Frame({ children }: { children: React.ReactNode }) {
 }
 
 const meta: Meta = {
-  title: "App/Reviews L2 Nav",
+  title: "App/Reviews L2 Nav/Examples",
   parameters: { layout: "fullscreen" },
 };
 export default meta;

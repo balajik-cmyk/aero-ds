@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { stack, stackOffsetWiggle, stackOrderInsideOut } from "d3-shape";
 
 const meta: Meta = {
-  title: "UI/Charts/Stream",
+  title: "UI/Charts/Stream/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

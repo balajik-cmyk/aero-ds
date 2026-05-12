@@ -6,7 +6,7 @@ import { ShortcutsModal } from "@/app/shortcuts/ShortcutsModal";
 import { Button } from "@/app/components/ui/button";
 
 const meta: Meta<typeof ShortcutsModal> = {
-  title: "App/Shortcuts/Keyboard shortcuts",
+  title: "App/Shortcuts/Keyboard shortcuts/Examples",
   component: ShortcutsModal,
   tags: ["autodocs"],
   args: {

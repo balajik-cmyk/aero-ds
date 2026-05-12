@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta = {
-  title: "Design System/Graph Colors",
+  title: "Design System/Graph Colors/Examples",
   parameters: { layout: "padded" },
 };
 export default meta;

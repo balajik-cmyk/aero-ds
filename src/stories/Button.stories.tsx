@@ -3,7 +3,7 @@ import { Button } from "@/app/components/ui/button";
 import { Mail, Plus, Loader2, Trash } from "lucide-react";
 
 const meta: Meta<typeof Button> = {
-  title: "UI/Button",
+  title: "UI/Button/Examples",
   component: Button,
   tags: ["autodocs"],
   argTypes: {

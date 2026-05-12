@@ -3,7 +3,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, ReferenceLine } from "rec
 import { ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent, type ChartConfig } from "@/app/components/ui/chart";
 
 const meta: Meta = {
-  title: "UI/Charts/Line",
+  title: "UI/Charts/Line/Examples",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
 };

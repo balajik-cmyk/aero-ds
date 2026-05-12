@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ListingsView } from "@/app/components/ListingsView";
 
 const meta: Meta<typeof ListingsView> = {
-  title: "App/Views/ListingsView",
+  title: "App/Views/ListingsView/Examples",
   component: ListingsView,
   parameters: {
     layout: "fullscreen",

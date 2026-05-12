@@ -6,7 +6,7 @@ import {
 } from "@/app/components/ui/resizable";
 
 const meta: Meta = {
-  title: "UI/Resizable",
+  title: "UI/Resizable/Examples",
   tags: ["autodocs"],
 };
 

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { DateRangePicker, type DateRange } from "@/app/components/ui/date-range-picker";
 
 const meta: Meta<typeof DateRangePicker> = {
-  title: "UI/DateRangePicker",
+  title: "UI/DateRangePicker/Examples",
   component: DateRangePicker,
   tags: ["autodocs"],
   parameters: {

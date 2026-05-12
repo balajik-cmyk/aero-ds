@@ -3,7 +3,7 @@ import { Tag } from "@/app/components/ui/tag";
 import { Star } from "@phosphor-icons/react";
 
 const meta: Meta<typeof Tag> = {
-  title: "UI/Tag",
+  title: "UI/Tag/Examples",
   component: Tag,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

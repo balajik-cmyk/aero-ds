@@ -193,7 +193,7 @@ function ViewSwitcher({
    ═══════════════════════════════════════════════════ */
 
 const meta: Meta = {
-  title: "App/AppShell",
+  title: "App/AppShell/Examples",
   parameters: {
     layout: "fullscreen",
     docs: {
